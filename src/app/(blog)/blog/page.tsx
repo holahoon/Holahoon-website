@@ -1,14 +1,16 @@
-import { allPosts, Post } from "contentlayer/generated";
+import { allPosts } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
+
+import Card from "@/components/blog/card";
 
 export default function Blog() {
   const posts = allPosts.sort((a, b) =>
     compareDesc(new Date(a.date), new Date(b.date))
   );
   return (
-    <div>
+    <div className="flex">
       {posts.map((post) => (
-        <div key={post._id}>{post.title}</div>
+        <Card key={post._id} post={post} />
       ))}
     </div>
   );
