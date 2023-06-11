@@ -1,0 +1,26 @@
+module.exports = {
+   semi: false,
+   singleQuote: false,
+   tabWidth: 3,
+   trailingComma: "es5",
+   importOrder: [
+      "^(next/(.*)$)|^(next$)",
+      "^(react/(.*)$)|^(react$)",
+      "<THIRD_PARTY_MODULES>",
+      "",
+      "^/@lib/(.*)$",
+      "^/@components/(.*)$",
+      "^/@hooks/(.*)$",
+      "[./]",
+   ],
+   importOrderSeparation: false,
+   importOrderSortSpecifiers: true,
+   importOrderBuiltInModulesToTop: true,
+   importOrderMergeDuplicateImports: true,
+   importOrderCombineTypeAndValueImports: true,
+   importOrderParserPlugins: ["typescript", "jsx", "decorators-legacy"],
+   plugins: [
+      "@ianvs/prettier-plugin-sort-imports",
+      "prettier-plugin-tailwindcss",
+   ],
+}
