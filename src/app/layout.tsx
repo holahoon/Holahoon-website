@@ -1,6 +1,7 @@
 import { Work_Sans } from "next/font/google"
 
 import Navigation from "@/components/navigation/navigation"
+import { ThemeProvider } from "@/providers/theme-provider"
 
 import "../styles/globals.css"
 
@@ -17,10 +18,12 @@ export default function RootLayout({
    children: React.ReactNode
 }) {
    return (
-      <html lang="en">
+      <html lang="en" suppressHydrationWarning>
          <body className={font.className}>
-            <Navigation />
-            {children}
+            <ThemeProvider defaultTheme="system" attribute="class" enableSystem>
+               <Navigation />
+               {children}
+            </ThemeProvider>
          </body>
       </html>
    )

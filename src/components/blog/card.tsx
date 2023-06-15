@@ -10,9 +10,11 @@ export default function card(props: Props) {
 
    return (
       <article className="prose prose-slate">
-         <h2>{post.title}</h2>
-         <p>{post.description}</p>
-         <time>{post.date}</time>
+         <div className="">
+            <h2>{post.title}</h2>
+            <p>{post.description}</p>
+            <time>{post.date}</time>
+         </div>
 
          <Mdx code={post.body.code} />
       </article>
