@@ -1,6 +1,7 @@
 import Link from "next/link"
 
 import { navList } from "@/libs/nav-list"
+import ThemeToggle from "../theme-toggle/theme-toggle"
 
 export default function navigation() {
    return (
@@ -23,7 +24,9 @@ export default function navigation() {
                ))}
             </ul>
 
-            <ul className="ml-auto flex">{/* TODO: toggle mode */}</ul>
+            <div className="ml-auto flex">
+               <ThemeToggle />
+            </div>
          </nav>
       </header>
    )
