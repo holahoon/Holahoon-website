@@ -1,7 +1,7 @@
 import { Work_Sans } from "next/font/google"
 
-import Navigation from "@/components/navigation/navigation"
 import { ThemeProvider } from "@/providers/theme-provider"
+import Navigation from "@/components/navigation/navigation"
 
 import "../styles/globals.css"
 
@@ -20,7 +20,12 @@ export default function RootLayout({
    return (
       <html lang="en" suppressHydrationWarning>
          <body className={font.className}>
-            <ThemeProvider defaultTheme="system" attribute="class" enableSystem>
+            <ThemeProvider
+               defaultTheme="system"
+               attribute="class"
+               // themes={["light", "dark"]}
+               enableSystem
+            >
                <Navigation />
                {children}
             </ThemeProvider>

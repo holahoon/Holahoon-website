@@ -18,15 +18,21 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 ## Tools
 
-- [Contentlayer](https://www.contentlayer.dev/)
-- [date-fns](https://date-fns.org/docs/Getting-Started#installation)
+### Contents
+
+-  [Contentlayer](https://www.contentlayer.dev/)
+-  [date-fns](https://date-fns.org/docs/Getting-Started#installation)
+
+### Styles
+
+-  [Daisy UI](https://github.com/saadeghi/daisyui)
 
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+-  [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+-  [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
