@@ -8,6 +8,7 @@ import {
    DropdownMenuItem,
    DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { Icons } from "@/components/icons"
 
 export default function ThemeToggle() {
    const { theme, setTheme } = useTheme()
@@ -22,13 +23,19 @@ export default function ThemeToggle() {
 
          <DropdownMenuContent>
             <DropdownMenuItem>
-               <button onClick={() => setTheme("light")}>light</button>
+               <button onClick={() => setTheme("light")}>
+                  <Icons.sun />
+               </button>
             </DropdownMenuItem>
             <DropdownMenuItem>
-               <button onClick={() => setTheme("dark")}>dark</button>
+               <button onClick={() => setTheme("dark")}>
+                  <Icons.moon />
+               </button>
             </DropdownMenuItem>
             <DropdownMenuItem>
-               <button onClick={() => setTheme("system")}>system</button>
+               <button onClick={() => setTheme("system")}>
+                  <Icons.laptop />
+               </button>
             </DropdownMenuItem>
          </DropdownMenuContent>
       </DropdownMenu>
