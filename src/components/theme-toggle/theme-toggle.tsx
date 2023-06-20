@@ -2,6 +2,7 @@
 
 import { useTheme } from "next-themes"
 
+import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -16,11 +17,11 @@ export default function ThemeToggle() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button>
+        <Button className="w-8 p-0">
           <Icons.sun className="absolute scale-100 transition-all dark:rotate-45 dark:scale-0" />
           <Icons.moon className="absolute rotate-45 scale-0 transition-all dark:rotate-0 dark:scale-100" />
           <span className="sr-only">Toggle theme</span>
-        </button>
+        </Button>
       </DropdownMenuTrigger>
 
       <DropdownMenuContent align="end">

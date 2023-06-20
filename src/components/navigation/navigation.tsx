@@ -5,12 +5,12 @@ import ThemeToggle from "../theme-toggle/theme-toggle"
 
 export default function navigation() {
   return (
-    <header className="lg:px-6 sticky top-0 mx-auto flex max-w-screen-full items-center px-4 py-4">
+    <header className="sticky top-0 mx-auto flex max-w-screen-full items-center px-4 py-6 lg:px-8 lg:py-6">
       <Link href="/" className="text-2xl font-bold text-alpha">
         Hooniverse
       </Link>
 
-      <nav className="ml-10 flex">
+      <nav className="ml-auto flex items-center">
         <ul className="flex">
           {navList.map(({ label, link }) => (
             <li key={label}>
@@ -24,7 +24,7 @@ export default function navigation() {
           ))}
         </ul>
 
-        <div className="ml-auto flex">
+        <div className="ml-6 flex">
           <ThemeToggle />
         </div>
       </nav>
