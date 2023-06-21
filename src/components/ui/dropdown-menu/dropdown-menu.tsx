@@ -32,7 +32,10 @@ export const DropdownMenuContent = forwardRef<
       <DropdownMenuPrimitive.Content
         ref={ref}
         sideOffset={sideOffset}
-        className={cn("z-50 overflow-hidden rounded-md border p-1", className)}
+        className={cn(
+          "z-50 overflow-hidden rounded-md border bg-white p-1",
+          className
+        )}
         {...rest}
       ></DropdownMenuPrimitive.Content>
     </DropdownMenuPrimitive.Portal>
@@ -52,7 +55,7 @@ export const DropdownMenuItem = forwardRef<
     <DropdownMenuPrimitive.Item
       ref={ref}
       className={cn(
-        "focus:bg-accent focus:text-accent-foreground relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+        "relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-slate-200 data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
         inset && "pl-8",
         className
       )}

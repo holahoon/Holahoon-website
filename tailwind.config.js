@@ -9,7 +9,7 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
-      screens: { full: "1440px" },
+      screens: { full: "1400px" },
       colors: {
         alpha: "#0f172a",
         bravo: "#334155",
@@ -17,8 +17,9 @@ module.exports = {
         delta: "#8e8e8d",
         echo: "#bbbbba",
         fox: "#e8e8e8",
+        accent: "hsl(210 40% 96.1%)",
       },
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [require("@tailwindcss/typography"), require("tailwindcss-animate")],
 }
