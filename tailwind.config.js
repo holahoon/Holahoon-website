@@ -18,6 +18,10 @@ module.exports = {
         echo: "#bbbbba",
         fox: "#e8e8e8",
         accent: "hsl(210 40% 96.1%)",
+
+        // In globals.css
+        background: "rgb(var(--background) / <alpha-value>)",
+        foreground: "rgb(var(--foreground) / <alpha-value>)",
       },
     },
   },
