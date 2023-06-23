@@ -16,7 +16,7 @@ export default function navigation() {
             <li key={label}>
               <Link
                 href={link}
-                className="mr-6 inline-block px-4 py-2 text-alpha last-of-type:mr-0"
+                className="mr-6 inline-block px-4 py-2 last-of-type:mr-0"
               >
                 {label}
               </Link>
