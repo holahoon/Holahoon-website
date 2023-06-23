@@ -5,8 +5,8 @@ import ThemeToggle from "../theme-toggle/theme-toggle"
 
 export default function navigation() {
   return (
-    <header className="sticky top-0 mx-auto flex max-w-screen-full items-center px-4 py-6 lg:px-8 lg:py-6">
-      <Link href="/" className="text-2xl font-bold text-foreground">
+    <header className="sticky top-0 mx-auto flex max-w-screen-full items-center bg-background px-4 py-6 lg:px-8 lg:py-6">
+      <Link href="/" className="text-xl font-bold text-foreground">
         Hooniverse
       </Link>
 

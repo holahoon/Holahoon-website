@@ -1,54 +1,32 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import { useTheme } from "next-themes"
 
 import { Button } from "@/components/ui/button"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
 import { Icons } from "@/components/icons"
 
 export default function ThemeToggle() {
-  const { setTheme } = useTheme()
+  const { theme, setTheme } = useTheme()
+
+  const [isMounted, setIsMounted] = useState<boolean>(false)
+
+  useEffect(() => setIsMounted(true), [])
+
+  if (!isMounted) return null
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button className="w-8 p-0">
-          <Icons.sun className="absolute scale-100 transition-all dark:rotate-45 dark:scale-0" />
-          <Icons.moon className="absolute rotate-45 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-          <span className="sr-only">Toggle theme</span>
-        </Button>
-      </DropdownMenuTrigger>
-
-      <DropdownMenuContent align="end">
-        <DropdownMenuItem
-          onClick={() => setTheme("light")}
-          className="cursor-pointer"
-        >
-          <Icons.sun className="mr-2 h-4 w-4" />
-          <span>light</span>
-        </DropdownMenuItem>
-
-        <DropdownMenuItem
-          onClick={() => setTheme("dark")}
-          className="cursor-pointer"
-        >
-          <Icons.moon className="mr-2 h-4 w-4" />
-          <span>dark</span>
-        </DropdownMenuItem>
-
-        <DropdownMenuItem
-          onClick={() => setTheme("system")}
-          className="cursor-pointer"
-        >
-          <Icons.laptop className="mr-2 h-4 w-4" />
-          <span>system</span>
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <Button
+      className="w-8 p-0"
+      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+    >
+      {theme === "light" ? (
+        <Icons.sun className="absolute h-6 w-6 scale-100 transition-all dark:rotate-45 dark:scale-0" />
+      ) : null}
+      {theme === "dark" ? (
+        <Icons.moon className="absolute h-6 w-6 rotate-45 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+      ) : null}
+      <span className="sr-only">Theme toggle</span>
+    </Button>
   )
 }
