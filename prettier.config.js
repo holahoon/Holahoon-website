@@ -7,6 +7,7 @@ module.exports = {
     "^(next/(.*)$)|^(next$)",
     "^(react/(.*)$)|^(react$)",
     "^@radix-ui/(.*)$",
+    "contentlayer/(.*)$",
     "<THIRD_PARTY_MODULES>",
     "",
     "^@/providers/(.*)$",
