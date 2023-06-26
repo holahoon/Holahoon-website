@@ -10,7 +10,7 @@ export default function List(props: ListProps) {
   const { posts } = props
 
   return (
-    <ul className="flex">
+    <ul className="grid">
       {posts.map((post) => (
         <li key={post._id}>
           <Card post={post} />

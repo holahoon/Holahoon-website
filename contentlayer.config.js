@@ -1,14 +1,14 @@
 /** Contentlayer specific configuration */
 
-import { defineDocumentType, makeSource } from "contentlayer/source-files";
+import { defineDocumentType, makeSource } from "contentlayer/source-files"
 
 const computedFields = {
-  slug: { type: "string", resolve: (doc) => `/${doc._raw.flattenedPath}` },
+  slug: { type: "string", resolve: (doc) => `/blog/${doc._raw.flattenedPath}` },
   slugAsParams: {
     type: "string",
-    resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
+    resolve: (doc) => doc._raw.flattenedPath,
   },
-};
+}
 
 export const Post = defineDocumentType(() => ({
   name: "Post",
@@ -18,16 +18,12 @@ export const Post = defineDocumentType(() => ({
     title: { type: "string", required: true },
     description: { type: "string", required: true },
     date: { type: "string", required: true },
+    tag: { type: "string", required: true },
   },
-  computedFields: {
-    url: {
-      type: "string",
-      resolve: (post) => `/articles/${post._raw.flattenedPath}`,
-    },
-  },
-}));
+  computedFields,
+}))
 
 export default makeSource({
   contentDirPath: "src/articles",
   documentTypes: [Post],
-});
+})
