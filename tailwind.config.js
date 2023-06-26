@@ -17,9 +17,9 @@ module.exports = {
         delta: "#8e8e8d",
         echo: "#bbbbba",
         fox: "#e8e8e8",
-        accent: "hsl(210 40% 96.1%)",
 
         background: "hsl(var(--background))",
+        border: "hsl(var(--border))",
         foreground: "hsl(var(--foreground))",
         accent: {
           DEFAULT: "hsl(var(--accent))",

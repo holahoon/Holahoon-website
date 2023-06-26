@@ -23,7 +23,7 @@ export default async function BlogPage(props: BlogDetailProps) {
   if (!post) notFound()
 
   return (
-    <div className="mx-dark:prose-invert prose">
+    <div className="prose mx-auto max-w-screen-full dark:prose-invert">
       <Mdx code={post.body.code} />
     </div>
   )
