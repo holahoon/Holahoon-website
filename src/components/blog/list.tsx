@@ -10,7 +10,7 @@ export default function List(props: ListProps) {
   const { posts } = props
 
   return (
-    <ul className="grid grid-cols-3 gap-4">
+    <ul>
       {posts.map((post) => (
         <li key={post._id}>
           <Card post={post} />
