@@ -1,6 +1,7 @@
 import Link from "next/link"
 import type { Post } from "contentlayer/generated"
 
+import { formatDate } from "@/libs/utils.helper"
 import { Icons } from "@/components/icons"
 
 interface Props {
@@ -18,7 +19,7 @@ export default function card(props: Props) {
 
         <time className="inline-flex items-center rounded-md border border-border bg-ring px-1 py-0.5 text-sm/4">
           <Icons.calendar size={12} className="mr-1" />
-          {post.date}
+          {formatDate(post.date)}
         </time>
         <span className="rounded-full bg-green-300 px-1 py-0.5 text-xs text-green-800">
           {post.tag}
