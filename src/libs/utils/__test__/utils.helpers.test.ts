@@ -19,7 +19,7 @@ describe("Helper function formatDate()", () => {
     expect(formatDate(date)).toBe("Mar 24th 1991")
   })
 
-  it("should return 2 days ago", () => {
+  it("should return about 9 hours ago", () => {
     const date = "03-24-2023"
     expect(formatDate(date)).toBe("about 9 hours ago")
   })
