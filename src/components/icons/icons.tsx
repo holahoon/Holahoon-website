@@ -3,6 +3,7 @@ import {
   Calendar,
   Code2,
   Database,
+  Eye,
   Laptop,
   Laugh,
   Moon,
@@ -34,4 +35,5 @@ export const Icons = {
     left: MoveLeft,
   },
   laugh: Laugh,
+  eye: Eye,
 }
