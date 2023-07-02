@@ -23,4 +23,10 @@ describe("Helper function formatDate()", () => {
     const date = "03-24-2023"
     expect(formatDate(date)).toBe("about 9 hours ago")
   })
+
+  it("should return Jul 2nd 2023", () => {
+    jest.useFakeTimers().setSystemTime(new Date("2023-07-02"))
+    const date = "07-02-2023"
+    expect(formatDate(date, 0)).toBe("Jul 2nd 2023")
+  })
 })

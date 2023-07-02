@@ -8,5 +8,10 @@ export default function Blog() {
     compareDesc(new Date(a.date), new Date(b.date))
   )
 
-  return <List posts={posts} />
+  return (
+    <main>
+      <h1>끄적끄적</h1>
+      <List posts={posts} />
+    </main>
+  )
 }

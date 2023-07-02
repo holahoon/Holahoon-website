@@ -46,6 +46,7 @@ module.exports = {
           foreground: "hsl(var(--destructive-foreground))",
         },
         ring: "hsl(var(--ring))",
+        link: "hsl(var(--link))",
       },
     },
   },

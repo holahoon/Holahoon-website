@@ -12,7 +12,7 @@ export default function List(props: ListProps) {
   return (
     <ul>
       {posts.map((post) => (
-        <li key={post._id}>
+        <li key={post._id} className="mb-4 last:mb-0">
           <Card post={post} />
         </li>
       ))}

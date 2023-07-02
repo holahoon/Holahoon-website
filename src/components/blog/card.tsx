@@ -11,20 +11,44 @@ interface Props {
 export default function card(props: Props) {
   const { post } = props
 
-  return (
-    <article className="mb-4 max-h-[150px] rounded-lg p-6 transition duration-300 hover:bg-accent/80">
-      <Link href={`${post.slug}`} className="">
-        <h3 className="mb-2 text-xl/6 font-semibold">{post.title}</h3>
-      </Link>
-      <p className="mb-4 truncate">{post.description}</p>
+  console.log(post)
 
-      <time className="inline-flex items-center rounded-md border border-border bg-ring px-1 py-0.5 text-sm/4">
-        <Icons.calendar size={12} className="mr-1" />
-        {formatDate(post.date)}
-      </time>
-      <span className="rounded-full bg-green-300 px-1 py-0.5 text-xs text-green-800">
-        {post.tag}
-      </span>
+  const Category = post.category ? Icons[post.category] : Icons.laugh
+
+  return (
+    <article className="group rounded-lg p-6 transition duration-300 hover:bg-accent/80">
+      <Link href={`${post.slug}`} className="mb-2 block">
+        <h3 className="mb-2 text-xl/6 font-semibold group-hover:text-link">
+          {post.title}
+        </h3>
+        <p className="mb-4 truncate text-foreground/80">{post.description}</p>
+        {/* <span className="inline-flex items-center text-sm group-hover:text-foreground/80">
+          Read more
+          <Icons.arrow.right
+            className="ml-2 -translate-x-1 opacity-0 transition-all delay-150 group-hover:translate-x-0 group-hover:text-link group-hover:opacity-100"
+            width={16}
+          />
+        </span> */}
+      </Link>
+
+      <div>
+        <time className="mb-2 inline-flex items-center text-sm/4 text-foreground/80">
+          <Icons.calendar size={12} className="mr-1" />
+          {formatDate(post.date, 0)}
+        </time>
+
+        <ul>
+          {post.tags.map((tag) => (
+            <li
+              key={`${post._id}-${tag}`}
+              className="mr-1 inline-flex items-center rounded-xl border border-border px-1.5 py-0.5 text-xs text-foreground/80 last:mr-0"
+            >
+              <Category size={14} className="mr-1" />
+              {tag}
+            </li>
+          ))}
+        </ul>
+      </div>
     </article>
   )
 }
