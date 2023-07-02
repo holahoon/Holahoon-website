@@ -12,5 +12,10 @@ export const metadata = {
 export default function BlogLayout(props: LayoutProps) {
   const { children } = props
 
-  return <main className="mx-auto max-w-screen-full px-4">{children}</main>
+  return (
+    <main className="mx-auto max-w-screen-full px-4">
+      <h1>Blog</h1>
+      {children}
+    </main>
+  )
 }

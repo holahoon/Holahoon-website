@@ -9,9 +9,9 @@ export default function Blog() {
   )
 
   return (
-    <main>
-      <h1>끄적끄적</h1>
+    <>
+      <h2></h2>
       <List posts={posts} />
-    </main>
+    </>
   )
 }

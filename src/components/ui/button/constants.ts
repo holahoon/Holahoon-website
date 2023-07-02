@@ -5,11 +5,11 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary",
+        default: "bg-background",
         secondary: "bg-secondary",
         outline: "border",
-        ghost: "hover:",
-        link: "text-primary underline-offset-4 hover:underline",
+        ghost: "hover",
+        link: "text-link underline-offset-4 hover:underline",
       },
       size: {
         default: "h-10 py-2 px-4",
