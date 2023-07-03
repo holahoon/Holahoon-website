@@ -2,11 +2,22 @@
 
 import { defineDocumentType, makeSource } from "contentlayer/source-files"
 
+const calculateReadingTime = (rawText) => {
+  const wpm = 185
+  const countedWords = rawText.split(/(\s+)/)
+  const minutes = countedWords.length / wpm
+  return Math.ceil(minutes)
+}
+
 const computedFields = {
   slug: { type: "string", resolve: (doc) => `/blog/${doc._raw.flattenedPath}` },
   slugAsParams: {
     type: "string",
     resolve: (doc) => doc._raw.flattenedPath,
+  },
+  readTime: {
+    type: "number",
+    resolve: (doc) => calculateReadingTime(doc.body.raw),
   },
 }
 

@@ -32,14 +32,15 @@ export default function card(props: Props) {
 
       <div className="flex items-center">
         {/* Date */}
-        <time className="mr-4 inline-flex items-center text-sm/4 text-primary/80">
+        <time className="mr-6 inline-flex items-center text-sm/4 text-primary/80">
           <Icons.calendar size={12} className="mr-1" />
           {formatDate(post.date, 0)}
         </time>
 
         {/* Views */}
         <span className="inline-flex items-center text-sm/4 text-primary/80">
-          <Icons.eye size={14} className="mr-1" />0
+          <Icons.clock size={14} className="mr-1" />
+          {post.readTime} min read
         </span>
 
         {/* Tags (Not sure if I'm going to use tags) */}

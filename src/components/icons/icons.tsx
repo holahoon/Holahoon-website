@@ -1,6 +1,7 @@
 import {
   Binary,
   Calendar,
+  Clock3,
   Code2,
   Database,
   Eye,
@@ -36,4 +37,5 @@ export const Icons = {
   },
   laugh: Laugh,
   eye: Eye,
+  clock: Clock3,
 }
