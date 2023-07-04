@@ -26,11 +26,11 @@ export default function BlogLayout(props: LayoutProps) {
       </div>
 
       <div className="flex">
-        <aside className="sticky top-[75px] mr-4 h-full">
+        <aside className="sticky top-[175px] mr-8 h-full">
           <MenuAside menus={MENUS} />
         </aside>
 
-        <section className="">{children}</section>
+        <section className="min-w-0">{children}</section>
       </div>
     </main>
   )
