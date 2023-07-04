@@ -1,4 +1,4 @@
-import { formatDate } from "@/libs/utils.helper"
+import { capitalizeWord, formatDate } from "@/libs/utils.helper"
 
 describe("Helper function formatDate()", () => {
   beforeAll(() => {
@@ -28,5 +28,12 @@ describe("Helper function formatDate()", () => {
     jest.useFakeTimers().setSystemTime(new Date("2023-07-02"))
     const date = "07-02-2023"
     expect(formatDate(date, 0)).toBe("Jul 2nd 2023")
+  })
+})
+
+describe("Helper function capitalizeWord", () => {
+  it("should return Hello", () => {
+    const word = "hELLO"
+    expect(capitalizeWord(word)).toBe("Hello")
   })
 })

@@ -9,14 +9,7 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
-      container: {
-        maxWidth: "1280px",
-        padding: {
-          DEFAULT: "1rem",
-          lg: "2rem",
-        },
-      },
-      screens: { full: "1400px" },
+      screens: { full: "960px" },
       colors: {
         alpha: "#0f172a",
         bravo: "#334155",

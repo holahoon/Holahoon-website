@@ -21,7 +21,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn(font.className, "container mx-auto")}>
+      <body
+        className={cn(font.className, "mx-auto max-w-screen-full px-4 md:px-8")}
+      >
         <ThemeProvider
           defaultTheme="system"
           attribute="class"

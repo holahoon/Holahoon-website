@@ -17,3 +17,10 @@ export const formatDate = (date: string, dist = 3): string => {
   if (timeDiff < days) return formatDistanceToNow(d, { addSuffix: true })
   return format(d, DATE_FORMAT)
 }
+
+/** Capitalize first letter */
+export const capitalizeWord = (word: string): string => {
+  const firstLetterUpperCased = word.charAt(0).toUpperCase()
+  const restOfLetter = word.substring(1).toLowerCase()
+  return firstLetterUpperCased + restOfLetter
+}
