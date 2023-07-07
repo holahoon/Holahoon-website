@@ -1,42 +1,32 @@
 import Link from "next/link"
 import { allPosts } from "contentlayer/generated"
-import { compareDesc } from "date-fns"
 
+import { useGetPostsCategories, useSortPostsByDate } from "@/hooks/blog"
+import { capitalizeWord } from "@/libs/utils.helper"
 import List from "@/components/blog/list"
+import AsideMenu from "@/components/blog/menu-aside"
 
 export default function Blog() {
-  const posts = allPosts.sort((a, b) =>
-    compareDesc(new Date(a.date), new Date(b.date))
-  )
+  const posts = useSortPostsByDate(allPosts, "desc")
+  const categories = useGetPostsCategories(posts)
 
   return (
     <>
-      <div className="mb-10">
-        <h2 className="mb-4 text-xl font-semibold backdrop-blur-sm">
-          <Link href="/blog/programming" className="hover:text-link">
-            Programming
-          </Link>
-        </h2>
-        <List posts={posts} />
-      </div>
+      <AsideMenu menus={categories} />
 
-      <div className="mb-10">
-        <h2 className="stimb-4 text-xl font-semibold backdrop-blur-sm">
-          <Link href="/blog/living" className="hover:text-link">
-            Living
-          </Link>
-        </h2>
-        <List posts={posts} />
-      </div>
+      <section className="min-w-0">
+        {categories.map((category) => (
+          <div key={`category-${category}`} className="mb-14 last:mb-0">
+            <h2 className="mb-4 text-2xl font-semibold backdrop-blur-sm">
+              <Link href={`/blog/${category}`} className="hover:text-link">
+                {capitalizeWord(category)}
+              </Link>
+            </h2>
 
-      <div className="mb-10">
-        <h2 className="stimb-4 text-xl font-semibold backdrop-blur-sm">
-          <Link href="/blog/living" className="hover:text-link">
-            test
-          </Link>
-        </h2>
-        <List posts={posts} />
-      </div>
+            <List category={category} posts={posts} />
+          </div>
+        ))}
+      </section>
     </>
   )
 }

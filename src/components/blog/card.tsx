@@ -14,13 +14,13 @@ export default function card(props: Props) {
   // const Category = post.category ? Icons[post.category] : Icons.laugh
 
   return (
-    <article className="group rounded-lg p-4 transition duration-300 hover:bg-accent/80">
+    <article className="group -m-4 rounded-lg p-4 transition duration-300 hover:bg-accent/80">
       <Link href={`${post.slug}`} className="mb-2 block">
         {/* Content */}
         <h3 className="mb-2 text-xl/6 font-medium text-primary group-hover:text-link">
           {post.title}
         </h3>
-        <p className="mb-2 truncate text-primary/80">{post.description}</p>
+        <p className="mb-2 line-clamp-2 text-primary/80">{post.description}</p>
         <span className="inline-flex items-center text-sm font-medium text-primary group-hover:text-primary/80">
           Read more
           <Icons.arrow.right
