@@ -34,3 +34,23 @@ export function useGetPostsByCategories(
     [posts, category]
   )
 }
+
+interface BeginningOption {
+  position: "beginning"
+  until: number
+}
+interface EndOption {
+  position: "end"
+  from: number
+}
+export function useGetNumberOfPosts(
+  posts: Post[],
+  option: BeginningOption | EndOption
+) {
+  const { position } = option
+
+  const end = position === "beginning" ? option.until : 0
+  const beginning = position === "end" ? option.from : 0
+
+  return useMemo(() => posts.slice(beginning, end), [posts, beginning, end])
+}

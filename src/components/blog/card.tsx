@@ -14,37 +14,37 @@ export default function card(props: Props) {
   // const Category = post.category ? Icons[post.category] : Icons.laugh
 
   return (
-    <article className="group -m-4 rounded-lg p-4 transition duration-300 hover:bg-accent/80">
+    <article className="hover:bg-accent/85 group rounded-lg bg-accent/50 p-4 transition duration-300">
       <Link href={`${post.slug}`} className="mb-2 block">
         {/* Content */}
-        <h3 className="mb-2 text-xl/6 font-medium text-primary group-hover:text-link">
+        <h3 className="mb-2 text-xl/6 font-medium text-primary transition-colors duration-300 group-hover:text-link">
           {post.title}
         </h3>
-        <p className="mb-2 line-clamp-2 text-primary/80">{post.description}</p>
-        <span className="inline-flex items-center text-sm font-medium text-primary group-hover:text-primary/80">
-          Read more
-          <Icons.arrow.right
-            className="ml-2 -translate-x-1 opacity-0 transition-all delay-150 group-hover:translate-x-0 group-hover:text-link group-hover:opacity-100"
-            width={16}
-          />
-        </span>
-      </Link>
+        <p className="mb-4 line-clamp-2 text-primary/80">{post.description}</p>
 
-      <div className="flex items-center">
-        {/* Date */}
-        <time className="mr-6 inline-flex items-center text-sm/4 text-primary/80">
-          <Icons.calendar size={12} className="mr-1" />
-          {formatDate(post.date, 0)}
-        </time>
+        <div className="flex items-center">
+          <span className="mr-auto inline-flex items-center text-sm font-medium text-primary/70 group-hover:text-primary">
+            Read more
+            <Icons.arrow.right
+              className="ml-2 -translate-x-1 opacity-0 transition-all delay-150 group-hover:translate-x-0 group-hover:text-link group-hover:opacity-100"
+              width={16}
+            />
+          </span>
 
-        {/* Views */}
-        <span className="inline-flex items-center text-sm/4 text-primary/80">
-          <Icons.clock size={14} className="mr-1" />
-          {post.readTime} min read
-        </span>
+          {/* Views */}
+          <span className="mr-6 inline-flex items-center text-sm/4 text-primary/70">
+            <Icons.clock size={14} className="mr-1" />
+            {post.readTime} min read
+          </span>
 
-        {/* Tags (Not sure if I'm going to use tags) */}
-        {/* <ul>
+          {/* Date */}
+          <time className="mr-2 inline-flex items-center text-sm/4 text-primary/70">
+            <Icons.calendar size={12} className="mr-1" />
+            {formatDate(post.date, 0)}
+          </time>
+
+          {/* Tags (Not sure if I'm going to use tags) */}
+          {/* <ul>
           {post.tags.map((tag) => (
             <li
               key={`${post._id}-${tag}`}
@@ -55,7 +55,8 @@ export default function card(props: Props) {
             </li>
           ))}
         </ul> */}
-      </div>
+        </div>
+      </Link>
     </article>
   )
 }
