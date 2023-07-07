@@ -4,6 +4,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 import { capitalizeWord } from "@/libs/utils.helper"
+import { Icons } from "@/components/icons"
 
 interface MenuAsideProps {
   menus: string[]
@@ -15,7 +16,7 @@ export default function AsideMenu(props: MenuAsideProps) {
   const path = usePathname()
 
   return (
-    <aside className="sticky top-[175px] mr-14 h-full">
+    <aside className="sticky top-[175px] mr-16 h-full">
       <nav className="-m-2">
         <ul>
           {menus.map((menu) => (

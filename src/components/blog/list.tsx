@@ -8,13 +8,15 @@ interface ListProps {
   posts: Post[]
 }
 
+const MAX_QTY = 4
+
 export default function List(props: ListProps) {
   const { posts, category } = props
 
   const postsByCategory = useGetPostsByCategories(posts, category)
   const numberOfPosts = useGetNumberOfPosts(postsByCategory, {
     position: "beginning",
-    until: 3,
+    until: MAX_QTY,
   })
 
   return (

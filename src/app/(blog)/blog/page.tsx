@@ -17,8 +17,11 @@ export default function Blog() {
       <section className="min-w-0">
         {categories.map((category) => (
           <div key={`category-${category}`} className="mb-14 last:mb-0">
-            <h2 className="mb-6 text-2xl font-semibold backdrop-blur-sm">
-              <Link href={`/blog/${category}`} className="hover:text-link">
+            <h2 className="mb-6 ">
+              <Link
+                href={`/blog/${category}`}
+                className="text-2xl font-semibold backdrop-blur-sm duration-300 hover:text-link"
+              >
                 {capitalizeWord(category)}
               </Link>
             </h2>
