@@ -14,8 +14,8 @@ export default function card(props: Props) {
   // const Category = post.category ? Icons[post.category] : Icons.laugh
 
   return (
-    <article className="hover:bg-accent/85 group rounded-lg bg-accent/50 p-4 transition duration-300">
-      <Link href={`${post.slug}`} className="mb-2 block">
+    <article className="hover:bg-accent/85 group rounded-lg bg-accent/50 p-6 transition duration-300">
+      <Link href={`${post.slug}`} className="block">
         {/* Content */}
         <h3 className="mb-2 text-xl/6 font-medium text-primary transition-colors duration-300 group-hover:text-link">
           {post.title}
@@ -38,7 +38,7 @@ export default function card(props: Props) {
           </span>
 
           {/* Date */}
-          <time className="mr-2 inline-flex items-center text-sm/4 text-primary/70">
+          <time className="inline-flex items-center text-sm/4 text-primary/70">
             <Icons.calendar size={12} className="mr-1" />
             {formatDate(post.date, 0)}
           </time>

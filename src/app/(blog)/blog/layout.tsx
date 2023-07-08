@@ -14,9 +14,10 @@ export default function BlogLayout(props: LayoutProps) {
 
   return (
     <main className="mt-10">
-      <div className="mb-14">
+      <div className="mb-20 border-b border-border pb-8">
         <h1 className="mb-8 text-4xl font-bold">Blog</h1>
-        <p>A place where I share my life.</p>
+        <p>I like to share my thoughts and expertise with the world.</p>
+        <p>blah blah blah blah.. I don't know what to write</p>
       </div>
 
       <div className="flex">{children}</div>

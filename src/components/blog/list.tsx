@@ -8,7 +8,7 @@ interface ListProps {
   posts: Post[]
 }
 
-const MAX_QTY = 4
+const MAX_QTY = 6
 
 export default function List(props: ListProps) {
   const { posts, category } = props
@@ -20,7 +20,7 @@ export default function List(props: ListProps) {
   })
 
   return (
-    <ul className="mx-auto max-w-2xl">
+    <ul>
       {numberOfPosts.map((post) => (
         <li key={post._id} className="mb-4 last:mb-0">
           <Card post={post} />
