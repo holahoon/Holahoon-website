@@ -10,10 +10,17 @@ const calculateReadingTime = (rawText) => {
 }
 
 const computedFields = {
-  slug: { type: "string", resolve: (doc) => `/blog/${doc._raw.flattenedPath}` },
-  slugAsParams: {
+  slug: {
     type: "string",
     resolve: (doc) => doc._raw.flattenedPath,
+  },
+  directory: { type: "string", resolve: (doc) => doc._raw.sourceFileDir },
+  slugAsParams: {
+    type: "string",
+    resolve: (doc) => {
+      console.log(doc)
+      return doc._raw.flattenedPath.split("/").slice(1).join("/")
+    },
   },
   readTime: {
     type: "number",
@@ -21,25 +28,37 @@ const computedFields = {
   },
 }
 
-export const Post = defineDocumentType(() => ({
-  name: "Post",
-  filePathPattern: "**/*.mdx",
+export const Programming = defineDocumentType(() => ({
+  name: "Programming",
+  filePathPattern: "programming/**/*.mdx",
   contentType: "mdx",
   fields: {
     title: { type: "string", required: true },
     description: { type: "string", required: true },
     date: { type: "string", required: true },
+    tags: { type: "list", of: { type: "string" }, required: false },
     category: {
       type: "enum",
-      options: ["programming", "life", "etc"],
+      options: ["JavaScript", "React", "CSS"],
       required: true,
     },
-    tags: { type: "list", of: { type: "string" }, required: false },
+  },
+  computedFields,
+}))
+
+export const Life = defineDocumentType(() => ({
+  name: "Life",
+  filePathPattern: "life/**/*.mdx",
+  contentType: "mdx",
+  fields: {
+    title: { type: "string", required: true },
+    description: { type: "string", required: true },
+    date: { type: "string", required: true },
   },
   computedFields,
 }))
 
 export default makeSource({
   contentDirPath: "src/articles",
-  documentTypes: [Post],
+  documentTypes: [Programming, Life],
 })

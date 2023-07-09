@@ -1,4 +1,4 @@
 export const navList = [
-   { link: "/about", label: "about me" },
-   { link: "/blog", label: "blog" },
+  { link: "/programming", label: "Programming" },
+  { link: "/life", label: "Life" },
 ]

@@ -16,8 +16,8 @@ export default function BlogLayout(props: LayoutProps) {
     <main className="mt-10">
       <div className="mb-20 border-b border-border pb-8">
         <h1 className="mb-8 text-4xl font-bold">Blog</h1>
-        <p>I like to share my thoughts and expertise with the world.</p>
-        <p>blah blah blah blah.. I don't know what to write</p>
+        <p>Hey there,</p>
+        <p>Sharing my life, thoughts and expertise with the world.</p>
       </div>
 
       <div className="flex">{children}</div>

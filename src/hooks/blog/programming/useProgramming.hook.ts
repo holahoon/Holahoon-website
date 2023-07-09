@@ -1,11 +1,11 @@
 import { useMemo } from "react"
-import type { Post } from "contentlayer/generated"
+import type { Programming } from "contentlayer/generated"
 import { compareDesc } from "date-fns"
 
-export function useSortPostsByDate(
-  posts: Post[],
+export function useSortProgrammingByDate(
+  posts: Programming[],
   order: "desc" | "asc"
-): Post[] {
+): Programming[] {
   return useMemo(() => {
     if (order === "desc")
       return posts.sort((a, b) =>
@@ -15,7 +15,9 @@ export function useSortPostsByDate(
   }, [posts, order])
 }
 
-export function useGetPostsCategories(posts: Post[]): Post["category"][] {
+export function useGetProgrammingCategories(
+  posts: Programming[]
+): Programming["category"][] {
   return useMemo(() => {
     const categories = posts.map((post) => post.category)
     const uniqueCategories = categories.filter(
@@ -25,10 +27,10 @@ export function useGetPostsCategories(posts: Post[]): Post["category"][] {
   }, [posts])
 }
 
-export function useGetPostsByCategories(
-  posts: Post[],
-  category: Post["category"]
-): Post[] {
+export function useGetProgrammingByCategories(
+  posts: Programming[],
+  category: Programming["category"]
+): Programming[] {
   return useMemo(
     () => posts.filter((post) => post.category === category),
     [posts, category]
@@ -43,8 +45,8 @@ interface EndOption {
   position: "end"
   from: number
 }
-export function useGetNumberOfPosts(
-  posts: Post[],
+export function useGetNumberOfProgramming(
+  posts: Programming[],
   option: BeginningOption | EndOption
 ) {
   const { position } = option

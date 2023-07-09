@@ -25,7 +25,7 @@ export default function AsideMenu(props: MenuAsideProps) {
                 href={`${path}/${menu}`}
                 className="block rounded-lg px-4 py-2 duration-300 hover:bg-accent/80"
               >
-                {capitalizeWord(menu)}
+                {menu}
               </Link>
             </li>
           ))}

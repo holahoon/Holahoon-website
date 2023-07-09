@@ -1,29 +1,42 @@
-import { type Post } from "contentlayer/generated"
+import { type Programming } from "contentlayer/generated"
 
-import { useGetNumberOfPosts, useGetPostsByCategories } from "@/hooks/blog"
+import {
+  useGetNumberOfProgramming,
+  useGetProgrammingByCategories,
+  useSortProgrammingByDate,
+} from "@/hooks/blog"
 import Card from "./card"
 
 interface ListProps {
-  category: Post["category"]
-  posts: Post[]
+  category: Programming["category"]
+  programmings: Programming[]
 }
 
 const MAX_QTY = 6
 
 export default function List(props: ListProps) {
-  const { posts, category } = props
+  const { programmings, category } = props
 
-  const postsByCategory = useGetPostsByCategories(posts, category)
-  const numberOfPosts = useGetNumberOfPosts(postsByCategory, {
+  const programmingsByCategory = useGetProgrammingByCategories(
+    programmings,
+    category
+  )
+  const sortedProgrammings = useSortProgrammingByDate(
+    programmingsByCategory,
+    "desc"
+  )
+  const numberOfProgrammings = useGetNumberOfProgramming(sortedProgrammings, {
     position: "beginning",
     until: MAX_QTY,
   })
 
+  if (!numberOfProgrammings.length) return <div>Contents coming up</div>
+
   return (
     <ul>
-      {numberOfPosts.map((post) => (
-        <li key={post._id} className="mb-4 last:mb-0">
-          <Card post={post} />
+      {numberOfProgrammings.map((programming) => (
+        <li key={programming._id} className="mb-4 last:mb-0">
+          <Card post={programming} />
         </li>
       ))}
     </ul>
