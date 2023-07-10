@@ -12,7 +12,10 @@ export default async function Programming() {
       <section className="min-w-0">
         {categories.map((category) => (
           <div key={`category-${category}`} className="mb-20">
-            <h2 id={category} className="mb-6 text-2xl font-semibold">
+            <h2
+              id={category}
+              className="mb-6 scroll-m-[140px] text-2xl font-semibold"
+            >
               {category}
             </h2>
 
