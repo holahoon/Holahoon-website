@@ -1,5 +1,3 @@
-"use client"
-
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
@@ -13,7 +11,7 @@ interface MenuAsideProps {
 export default function AsideMenu(props: MenuAsideProps) {
   const { menus } = props
 
-  const path = usePathname()
+  // const path = usePathname()
 
   return (
     <aside className="sticky top-[150px] mr-14 h-full">
@@ -22,7 +20,9 @@ export default function AsideMenu(props: MenuAsideProps) {
           {menus.map((menu) => (
             <li key={menu} className="mb-4 last:mb-0">
               <Link
-                href={`${path}/${menu}`}
+                // href={`${path}/${menu}`}
+                href={`#${menu}`}
+                scroll={false}
                 className="block rounded-lg px-4 py-2 duration-300 hover:bg-accent/80"
               >
                 {menu}

@@ -1,4 +1,4 @@
 export const navList = [
-  { link: "/programming", label: "Programming" },
+  { link: "/til", label: "TIL" },
   { link: "/life", label: "Life" },
 ]
