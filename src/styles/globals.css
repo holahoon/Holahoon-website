@@ -75,7 +75,10 @@
     box-sizing: border-box;
     /* @apply border-border;  */
   }
-  html, bot {
+  html {
+    scroll-behavior: smooth !important;
+  }
+  html, body {
     height: 100%;
   }
   body {
