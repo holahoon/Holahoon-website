@@ -17,7 +17,7 @@ export default function Card(props: Props) {
     <article className="hover:bg-accent/85 group rounded-lg bg-accent/50 p-6 transition duration-300">
       <Link href={`/${post.slug}`} className="block">
         {/* Content */}
-        <h3 className="mb-3 text-xl/6 font-medium text-primary transition-colors duration-300 group-hover:text-link">
+        <h3 className="mb-3 line-clamp-2 text-xl/6 font-medium text-primary transition-colors duration-300 group-hover:text-link">
           {post.title}
         </h3>
         <p className="mb-4 line-clamp-2 text-primary/80">{post.description}</p>

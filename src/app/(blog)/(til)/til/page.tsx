@@ -7,7 +7,7 @@ import AsideMenu from "@/components/blog/menu-aside"
 export default async function Programming() {
   return (
     <>
-      <AsideMenu menus={categories} />
+      <AsideMenu menus={categories} className="hidden md:block" />
 
       <section className="min-w-0">
         {categories.map((category) => (
