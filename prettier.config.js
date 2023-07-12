@@ -17,6 +17,7 @@ module.exports = {
     "^@/components/(.*)$",
     "^@/articles/(.*)$",
     "^@/styles/(.*)$",
+    "^@/config/(.*)$",
     "[./]",
   ],
   importOrderSeparation: false,

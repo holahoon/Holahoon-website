@@ -10,6 +10,7 @@ import {
   Laptop,
   Laugh,
   Linkedin,
+  Mail,
   Moon,
   MoveDown,
   MoveLeft,
@@ -42,6 +43,7 @@ export const Icons = {
   eye: Eye,
   clock: Clock3,
   social: {
+    email: Mail,
     github: Github,
     linkedin: Linkedin,
   },
