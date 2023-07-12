@@ -1,12 +1,15 @@
 import {
+  AtSign,
   Binary,
   Calendar,
   Clock3,
   Code2,
   Database,
   Eye,
+  Github,
   Laptop,
   Laugh,
+  Linkedin,
   Moon,
   MoveDown,
   MoveLeft,
@@ -38,4 +41,9 @@ export const Icons = {
   laugh: Laugh,
   eye: Eye,
   clock: Clock3,
+  social: {
+    github: Github,
+    linkedin: Linkedin,
+  },
+  at: AtSign,
 }

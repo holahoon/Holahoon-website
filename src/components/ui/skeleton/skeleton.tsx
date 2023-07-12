@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from "react"
 
-import { cn } from "@/libs/utils.helper"
+import { cn } from "@/libs/utils/utils.helper"
 
 function Skeleton(props: HTMLAttributes<HTMLDivElement>) {
   const { className, ...rest } = props

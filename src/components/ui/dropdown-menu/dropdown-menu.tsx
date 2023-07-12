@@ -7,7 +7,7 @@ import {
 } from "react"
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu"
 
-import { cn } from "@/libs/utils.helper"
+import { cn } from "@/libs/utils/utils.helper"
 
 export const DropdownMenu = DropdownMenuPrimitive.Root
 
@@ -90,7 +90,7 @@ export const DropdownMenuSeparator = forwardRef<
 >(({ className, ...props }, ref) => (
   <DropdownMenuPrimitive.Separator
     ref={ref}
-    className={cn("bg-muted -mx-1 my-1 h-px", className)}
+    className={cn("-mx-1 my-1 h-px bg-muted", className)}
     {...props}
   />
 ))

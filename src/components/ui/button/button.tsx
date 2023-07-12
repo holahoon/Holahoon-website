@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes, forwardRef, type ForwardedRef } from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { type VariantProps } from "class-variance-authority"
 
-import { cn } from "@/libs/utils.helper"
+import { cn } from "@/libs/utils/utils.helper"
 import { buttonVariants } from "./constants"
 
 export interface ButtonProps

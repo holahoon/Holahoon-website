@@ -17,10 +17,7 @@ const computedFields = {
   directory: { type: "string", resolve: (doc) => doc._raw.sourceFileDir },
   slugAsParams: {
     type: "string",
-    resolve: (doc) => {
-      console.log(doc)
-      return doc._raw.flattenedPath.split("/").slice(1).join("/")
-    },
+    resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
   },
   readTime: {
     type: "number",

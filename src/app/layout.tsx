@@ -1,11 +1,11 @@
 import { Work_Sans } from "next/font/google"
 
 import { ThemeProvider } from "@/providers/theme-provider"
+import { cn } from "@/libs/utils/utils.helper"
+import Footer from "@/components/footer"
 import Navigation from "@/components/navigation/navigation"
 
 import "../styles/globals.css"
-
-import { cn } from "@/libs/utils.helper"
 
 const font = Work_Sans({ subsets: ["latin"] })
 
@@ -35,6 +35,8 @@ export default function RootLayout({
         >
           <Navigation />
           {children}
+
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

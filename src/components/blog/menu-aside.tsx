@@ -4,7 +4,7 @@ import Link from "next/link"
 import type { HTMLAttributes } from "react"
 
 import { useActiveItem, useMounted } from "@/hooks/common"
-import { cn } from "@/libs/utils.helper"
+import { cn } from "@/libs/utils/utils.helper"
 import { Skeleton } from "@/components/ui/skeleton"
 
 interface MenuAsideProps extends HTMLAttributes<HTMLElement> {
@@ -30,7 +30,7 @@ export default function AsideMenu(props: MenuAsideProps) {
 
           <ul>
             {menus.map((menu) => (
-              <li key={menu} className="mb-4 last:mb-0">
+              <li key={menu} className="mb-2 last:mb-0">
                 <Link
                   href={`#${menu}`}
                   className={cn(
@@ -49,9 +49,9 @@ export default function AsideMenu(props: MenuAsideProps) {
       ) : (
         <div>
           <Skeleton className="mb-6 h-6 w-full" />
-          <Skeleton className="mb-4 h-4 w-full" />
-          <Skeleton className="mb-4 h-4 w-full" />
-          <Skeleton className="mb-4 h-4 w-full" />
+          <Skeleton className="mb-2 h-4 w-full" />
+          <Skeleton className="mb-2 h-4 w-full" />
+          <Skeleton className="mb-2 h-4 w-full" />
         </div>
       )}
     </aside>
