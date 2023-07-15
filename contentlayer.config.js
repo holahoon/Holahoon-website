@@ -25,9 +25,9 @@ const computedFields = {
   },
 }
 
-export const Programming = defineDocumentType(() => ({
-  name: "Programming",
-  filePathPattern: "programming/**/*.mdx",
+export const Til = defineDocumentType(() => ({
+  name: "Til",
+  filePathPattern: "til/**/*.mdx",
   contentType: "mdx",
   fields: {
     title: { type: "string", required: true },
@@ -57,5 +57,5 @@ export const Life = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: "src/articles",
-  documentTypes: [Programming, Life],
+  documentTypes: [Til, Life],
 })

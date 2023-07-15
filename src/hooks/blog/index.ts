@@ -1,1 +1,1 @@
-export * from "./programming/use-blog-programming.hook"
+export * from "./til/use-blog-Til.hook"

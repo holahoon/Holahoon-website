@@ -1,10 +1,16 @@
-import { allProgrammings, type Programming } from "contentlayer/generated"
+import { allTils, type Til } from "contentlayer/generated"
 
-import { categories } from "@/libs/blog/programming.constants"
 import List from "@/components/blog/list"
 import AsideMenu from "@/components/blog/menu-aside"
 
-export default async function Programming() {
+const getTilCategories = async (contents: Til[]) => {
+  const categories = contents.map((post) => post.category)
+  return categories.filter((post, idx, array) => array.indexOf(post) === idx)
+}
+
+export default async function Til() {
+  const categories = await getTilCategories(allTils)
+
   return (
     <>
       <AsideMenu menus={categories} className="hidden md:block" />
@@ -19,7 +25,7 @@ export default async function Programming() {
               {category}
             </h2>
 
-            <List category={category} programmings={allProgrammings} />
+            <List category={category} contents={allTils} />
           </div>
         ))}
       </section>

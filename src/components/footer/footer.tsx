@@ -16,7 +16,7 @@ function Footer(props: HTMLAttributes<HTMLElement>) {
         className
       )}
     >
-      <p className="text-sm text-primary/60">
+      <p className="text-sm text-primary/50">
         © {year} David Kim. All rights reserved.
       </p>
 

@@ -1,11 +1,11 @@
 import Link from "next/link"
-import type { Programming } from "contentlayer/generated"
+import type { Til } from "contentlayer/generated"
 
 import { formatDate } from "@/libs/utils/utils.helper"
 import { Icons } from "@/components/icons"
 
 interface Props {
-  post: Programming
+  post: Til
 }
 
 export default function Card(props: Props) {

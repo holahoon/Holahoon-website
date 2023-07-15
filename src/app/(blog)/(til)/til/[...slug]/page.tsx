@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation"
-import { allProgrammings, type Programming } from "contentlayer/generated"
+import { allTils, type Til } from "contentlayer/generated"
 
 import Mdx from "@/components/mdx/mdx-component"
 
@@ -9,9 +9,9 @@ interface PageProps {
 
 const getArticleFromParams = async (
   params: PageProps["params"]
-): Promise<Programming | null> => {
+): Promise<Til | null> => {
   const slug = params.slug?.join("/")
-  const post = allProgrammings.find((post) => post.slug === slug)
+  const post = allTils.find((post) => post.slugAsParams === slug)
   if (!post) return null
   return post
 }
