@@ -11,9 +11,9 @@ export default async function Til() {
     <>
       <AsideMenu menus={categories} className="hidden md:block" />
 
-      <section className="min-w-0">
+      <div className="min-w-0">
         {categories.map((category) => (
-          <div key={`category-${category}`} className="mb-20">
+          <div key={`blog-${category}`} className="mb-20">
             <h2
               id={category}
               className="mb-6 scroll-m-[140px] text-2xl font-semibold"
@@ -24,7 +24,7 @@ export default async function Til() {
             <List category={category} contents={allTils} />
           </div>
         ))}
-      </section>
+      </div>
     </>
   )
 }

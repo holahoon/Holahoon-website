@@ -10,8 +10,8 @@ import "../styles/globals.css"
 const font = Work_Sans({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "Hooniverse",
-  description: "Hey! I'm DK! welcome to my hooniverse!",
+  title: "DK",
+  description: "Hey! I'm DK! welcome to my DK!",
 }
 
 export default function RootLayout({
@@ -34,7 +34,7 @@ export default function RootLayout({
           enableSystem
         >
           <Navigation />
-          <main className="mt-10">{children}</main>
+          <main className="mt-12">{children}</main>
 
           <Footer />
         </ThemeProvider>

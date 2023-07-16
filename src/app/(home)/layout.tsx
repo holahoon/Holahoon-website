@@ -16,12 +16,17 @@ export default function BlogLayout(props: LayoutProps) {
 
   return (
     <>
-      <PageHeader header="Hi! I'm DK,">
-        <p className="text-lg">a web developer.</p>
-        <p>I constantly seek out innovative solutions to everyday problems</p>
+      <PageHeader header="Delighted to meet you!">
+        <p className="text-primary/90">
+          I&apos;m <strong>David</strong>, a web developer
+        </p>
+        <p className="text-primary/90">
+          passionate about transforming ideas into interactive digital
+          realities.
+        </p>
       </PageHeader>
 
-      <div className="flex">{children}</div>
+      <section>{children}</section>
     </>
   )
 }

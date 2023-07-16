@@ -7,7 +7,7 @@ export default function navigation() {
   return (
     <header className="z-1 sticky top-0 isolate flex h-[75px] items-center bg-background">
       <Link href="/" className="text-xl font-bold text-foreground">
-        Hooniverse
+        DK
       </Link>
 
       <nav className="ml-auto flex items-center">

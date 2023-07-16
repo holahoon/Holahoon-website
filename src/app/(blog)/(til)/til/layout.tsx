@@ -7,7 +7,7 @@ interface LayoutProps {
 }
 
 export const metadata = {
-  title: "Hooniverse blog",
+  title: "DK blog",
   description: "This is DK's blog",
 }
 
@@ -16,12 +16,14 @@ export default function BlogLayout(props: LayoutProps) {
 
   return (
     <>
-      <PageHeader header="TIL">
-        <p>Today I learned.</p>
-        <p>And sharing with the world.</p>
+      <PageHeader header="Today I Learned">
+        <p className="text-primary/90">I share nuggets of knowledge</p>
+        <p className="text-primary/90">
+          and insights that I&apos;ve picked up along my journey.
+        </p>
       </PageHeader>
 
-      <div className="flex">{children}</div>
+      <section className="flex">{children}</section>
     </>
   )
 }

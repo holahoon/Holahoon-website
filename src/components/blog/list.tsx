@@ -30,7 +30,7 @@ export default function List(props: ListProps) {
     <ul>
       {numberOfTils.map((til) => (
         <li key={til._id} className="mb-4 last:mb-0">
-          <Card post={til} />
+          <Card article={til} />
         </li>
       ))}
     </ul>
