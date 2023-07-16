@@ -1,7 +1,7 @@
 import Link, { type LinkProps } from "next/link"
 import { type ReactNode } from "react"
 
-import { cn } from "@/libs/utils/utils.helper"
+import { cn } from "@/libs/utils/utils.helpers"
 
 interface Props extends LinkProps {
   children: ReactNode

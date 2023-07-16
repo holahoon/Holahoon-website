@@ -4,7 +4,7 @@ import Link from "next/link"
 import type { HTMLAttributes } from "react"
 
 import { useActiveItem, useMounted } from "@/hooks/common"
-import { cn } from "@/libs/utils/utils.helper"
+import { cn } from "@/libs/utils/utils.helpers"
 import { Skeleton } from "@/components/ui/skeleton"
 
 interface MenuAsideProps extends HTMLAttributes<HTMLElement> {

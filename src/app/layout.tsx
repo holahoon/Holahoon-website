@@ -1,7 +1,7 @@
 import { Work_Sans } from "next/font/google"
 
 import { ThemeProvider } from "@/providers/theme-provider"
-import { cn } from "@/libs/utils/utils.helper"
+import { cn } from "@/libs/utils/utils.helpers"
 import Footer from "@/components/footer"
 import Navigation from "@/components/navigation/navigation"
 
@@ -34,7 +34,7 @@ export default function RootLayout({
           enableSystem
         >
           <Navigation />
-          {children}
+          <main className="mt-10">{children}</main>
 
           <Footer />
         </ThemeProvider>

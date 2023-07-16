@@ -1,4 +1,4 @@
-import { capitalizeWord, formatDate } from "@/libs/utils/utils.helper"
+import { capitalizeWord, formatDate } from "@/libs/utils/utils.helpers"
 
 describe("Helper function formatDate()", () => {
   beforeAll(() => {

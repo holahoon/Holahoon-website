@@ -5,7 +5,7 @@ import ThemeToggle from "../theme-toggle/theme-toggle"
 
 export default function navigation() {
   return (
-    <header className="sticky top-0 isolate z-10 flex h-[75px] items-center bg-background">
+    <header className="z-1 sticky top-0 isolate flex h-[75px] items-center bg-background">
       <Link href="/" className="text-xl font-bold text-foreground">
         Hooniverse
       </Link>

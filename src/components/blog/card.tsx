@@ -1,7 +1,7 @@
 import Link from "next/link"
 import type { Til } from "contentlayer/generated"
 
-import { formatDate } from "@/libs/utils/utils.helper"
+import { formatDate } from "@/libs/utils/utils.helpers"
 import { Icons } from "@/components/icons"
 
 interface Props {

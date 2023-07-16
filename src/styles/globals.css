@@ -73,11 +73,10 @@
 @layer base {
   * {
     box-sizing: border-box;
-    /* @apply border-border;  */
   }
-  html {
+  /* html {
     scroll-behavior: smooth !important;
-  }
+  } */
   body {
     @apply bg-background text-foreground;
   }

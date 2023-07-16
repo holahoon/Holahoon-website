@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { HTMLAttributes } from "react"
 
-import { cn } from "@/libs/utils/utils.helper"
+import { cn } from "@/libs/utils/utils.helpers"
 import { Icons } from "@/components/icons"
 import { siteConfig } from "@/config/site"
 
@@ -12,7 +12,7 @@ function Footer(props: HTMLAttributes<HTMLElement>) {
   return (
     <footer
       className={cn(
-        "mb-14 mt-10 flex items-center border-t border-border pt-14",
+        "mt-10 flex items-center border-t border-border py-14",
         className
       )}
     >

@@ -1,15 +1,11 @@
 import { allTils, type Til } from "contentlayer/generated"
 
+import { getTilCategories } from "@/libs/blog/til"
 import List from "@/components/blog/list"
 import AsideMenu from "@/components/blog/menu-aside"
 
-const getTilCategories = async (contents: Til[]) => {
-  const categories = contents.map((post) => post.category)
-  return categories.filter((post, idx, array) => array.indexOf(post) === idx)
-}
-
 export default async function Til() {
-  const categories = await getTilCategories(allTils)
+  const categories = await getTilCategories()
 
   return (
     <>

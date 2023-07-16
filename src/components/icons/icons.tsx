@@ -4,6 +4,7 @@ import {
   Calendar,
   Clock3,
   Code2,
+  Construction,
   Database,
   Eye,
   Github,
@@ -48,4 +49,5 @@ export const Icons = {
     linkedin: Linkedin,
   },
   at: AtSign,
+  construction: Construction,
 }

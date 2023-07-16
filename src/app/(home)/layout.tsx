@@ -7,8 +7,8 @@ interface LayoutProps {
 }
 
 export const metadata = {
-  title: "Hooniverse blog",
-  description: "This is DK's blog",
+  title: "DK",
+  description: "DK's page",
 }
 
 export default function BlogLayout(props: LayoutProps) {
@@ -16,9 +16,9 @@ export default function BlogLayout(props: LayoutProps) {
 
   return (
     <>
-      <PageHeader header="TIL">
-        <p>Today I learned.</p>
-        <p>And sharing with the world.</p>
+      <PageHeader header="Hi! I'm DK,">
+        <p className="text-lg">a web developer.</p>
+        <p>I constantly seek out innovative solutions to everyday problems</p>
       </PageHeader>
 
       <div className="flex">{children}</div>
