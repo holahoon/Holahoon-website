@@ -1,4 +1,7 @@
-import { type ReactNode } from "react"
+"use client"
+
+import { usePathname } from "next/navigation"
+import { useEffect, type ReactNode } from "react"
 
 import PageHeader from "@/components/layout/page-header"
 
@@ -6,13 +9,19 @@ interface LayoutProps {
   children: ReactNode
 }
 
-export const metadata = {
-  title: "DK",
-  description: "DK's page",
-}
+// export const metadata = {
+//   title: "DK",
+//   description: "DK's page",
+// }
 
 export default function BlogLayout(props: LayoutProps) {
   const { children } = props
+  const pathname = usePathname()
+
+  useEffect(() => {
+    console.log(pathname)
+    window.scroll(0, 0)
+  }, [pathname])
 
   return (
     <>

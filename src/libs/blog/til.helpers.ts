@@ -1,5 +1,7 @@
 import { allTils, type Til } from "contentlayer/generated"
 
+/** TIL */
+
 export const getRecentTils = async (qty: number): Promise<Til[]> => {
   return allTils.slice(0, qty)
 }

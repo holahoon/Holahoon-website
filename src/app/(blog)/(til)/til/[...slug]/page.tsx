@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation"
 
-import { getTilsFromParams } from "@/libs/blog/til"
+import { getTilsFromParams } from "@/libs/blog"
 import Mdx from "@/components/mdx/mdx-component"
 
 interface PageProps {
