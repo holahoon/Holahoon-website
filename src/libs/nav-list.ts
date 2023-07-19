@@ -11,4 +11,9 @@ export const NAV_LIFE = {
   label: "Life",
 } as const
 
-export const navList = [NAV_TIL, NAV_PROJECTS, NAV_LIFE]
+// export const navList = [NAV_TIL, NAV_PROJECTS, NAV_LIFE]
+export const navList = [
+  { link: "/til", label: "TIL" },
+  { link: "/projects", label: "Projects" },
+  { link: "/life", label: "Life" },
+]

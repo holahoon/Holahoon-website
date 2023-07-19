@@ -12,7 +12,7 @@ function Footer(props: HTMLAttributes<HTMLElement>) {
   return (
     <footer
       className={cn(
-        "mt-10 flex items-center border-t border-border py-14",
+        "mt-10 flex items-center border-t border-border py-10",
         className
       )}
     >

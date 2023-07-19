@@ -1,4 +1,5 @@
 import { Work_Sans } from "next/font/google"
+import type { ReactNode } from "react"
 
 import { ThemeProvider } from "@/providers/theme-provider"
 import { cn } from "@/libs/utils/utils.helpers"
@@ -7,36 +8,42 @@ import Navigation from "@/components/navigation/navigation"
 
 import "../styles/globals.css"
 
-const font = Work_Sans({ subsets: ["latin"] })
-
-export const metadata = {
-  title: "DK",
-  description: "Hey! I'm DK! welcome to my DK!",
+interface RootLayoutProps {
+  children: ReactNode
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+const font = Work_Sans({ subsets: ["latin"] })
+
+// TODO: needs work
+export const metadata = {
+  title: "DK",
+  description: "HI! I'm DK, a web developer.",
+}
+
+const themes = ["light", "dark"]
+
+export default function RootLayout(props: RootLayoutProps) {
+  const { children } = props
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
           font.className,
-          "mx-auto max-w-screen-full px-4 md:px-12"
+          "mx-auto min-h-screen max-w-screen-full px-4 md:px-12"
         )}
       >
         <ThemeProvider
           defaultTheme="system"
           attribute="class"
-          themes={["light", "dark"]}
+          themes={themes}
           enableSystem
         >
-          <Navigation />
-          <main className="mt-12">{children}</main>
-
-          <Footer />
+          <div className="flex min-h-screen flex-col">
+            <Navigation />
+            {children}
+            <Footer />
+          </div>
         </ThemeProvider>
       </body>
     </html>

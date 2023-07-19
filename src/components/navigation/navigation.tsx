@@ -1,7 +1,7 @@
 import Link from "next/link"
 
 import { navList } from "@/libs/nav-list"
-import ThemeToggle from "../theme-toggle/theme-toggle"
+import ThemeToggle from "@/components/theme-toggle/theme-toggle"
 
 export default function navigation() {
   return (

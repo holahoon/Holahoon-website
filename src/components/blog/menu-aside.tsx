@@ -15,12 +15,13 @@ export default function AsideMenu(props: MenuAsideProps) {
   const { menus, className } = props
 
   const isMounted = useMounted()
-  const activeItemId = useActiveItem(menus)
+  // const activeItemId = useActiveItem(menus)
 
   return (
     <aside
       className={cn(
-        "sticky top-[140px] mr-4 h-full w-full max-w-[150px]",
+        // "sticky top-[140px] mr-4 h-full w-full max-w-[150px]",
+        "mr-4 h-full w-full max-w-[150px]",
         className
       )}
     >
@@ -35,9 +36,10 @@ export default function AsideMenu(props: MenuAsideProps) {
                   href={`#${menu}`}
                   className={cn(
                     "duration-300 hover:text-foreground",
-                    menu === activeItemId
-                      ? "font-medium text-foreground"
-                      : "text-foreground/70"
+                    "font-medium text-foreground"
+                    // menu === activeItemId
+                    //   ? "font-medium text-foreground"
+                    //   : "text-foreground/70"
                   )}
                 >
                   {menu}
