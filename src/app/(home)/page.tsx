@@ -9,7 +9,7 @@ export default async function Home() {
           A Web Developer
         </h2>
         <p className="mt-1 text-primary/80">
-          with an immense passion for building cool things on the web
+          with a passion for building cool things on the web
         </p>
       </div>
 

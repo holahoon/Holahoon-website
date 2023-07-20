@@ -3,8 +3,6 @@ import { useEffect, useState } from "react"
 export function useActiveItem(itemIds: string[]): string | null {
   const [activeId, setActiveId] = useState<string | null>(null)
 
-  // Not sure if accessing directly into the DOM and getting element by id is a good approach.
-  // I might need to forwards reference of the DOM object instead?
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
