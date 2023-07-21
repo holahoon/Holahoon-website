@@ -5,11 +5,11 @@ interface LayoutProps {
 }
 
 export const metadata = {
-  title: "DK, web dev",
+  title: "DK, life",
   description: "David Kim, a web developer",
 }
 
-export default function HomeLayout(props: LayoutProps) {
+export default function LifeLayout(props: LayoutProps) {
   const { children } = props
 
   return <main className="mt-12 flex flex-1 flex-col">{children}</main>
