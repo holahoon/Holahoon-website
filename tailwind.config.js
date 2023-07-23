@@ -11,13 +11,6 @@ module.exports = {
     extend: {
       screens: { full: "960px" },
       colors: {
-        alpha: "#0f172a",
-        bravo: "#334155",
-        charlie: "#4a4948",
-        delta: "#8e8e8d",
-        echo: "#bbbbba",
-        fox: "#e8e8e8",
-
         background: "hsl(var(--background))",
         border: "hsl(var(--border))",
         foreground: "hsl(var(--foreground))",
