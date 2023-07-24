@@ -1,24 +1,26 @@
 ---
-title: Understand and implement callback refs in React
-description: Use callback refs to store DOM node's attributes as a variable(state | refs | memo)
+title: Using callback refs!
+description: Stop using useEffect to get accessed to refs. Use callback refs!
 date: 2023-07-24
 category: React
 ---
 
-# React callback ref
+# Stop trying to interact with refs in useEffect
+
+## Interacting with refs
 
 Refs are mutable containers where we can theoretically store any arbitrary values. Most of the times, they are used to get access to a DOM node.
 
-```JavaScript
-const inputRef = React.useRef(null)
-return <input ref={ref} defaultValue="Hey there" />
-```
-
 React sets the DOM node in the ref after it was rendered and sets it back to _null_ when the component unmounts.
+
+### Focus an input with an effect
 
 What if I want to focus an input element after the render? I could simply use `useEffect()` hook and focus on the element.
 
-```JavaScript
+```jsx
+const inputRef = React.useRef(null)
+return <input ref={ref} defaultValue="Hey there" />
+
 React.useEffect(() => {
   inputRef.current?.focus()
 }, [])
@@ -59,7 +61,49 @@ const Form = React.forwardRef((props, ref) => {
     </form>
   )
 })
+// code from TkDodo's blog
 ```
 
 When Form component renders, `input` is not rendered since it is set to `false` and _ref_ is still _null_.
 Then effect runs, but it doesn't do anything. When `input` renders, _ref_ gets filled, but won't be focued since effect will not run again because effect isn't depdent on `show` state.
+
+The effect will only run once the form component is mounted, not when the input element is rendered.
+This is a problem.
+
+## Callback Refs
+
+Notice the [type declarations](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/fc9b16957473f81a1d708e6948b8d61e292aeb58/types/react/v17/index.d.ts#L85) of refs. Not only it accepts an object, but it also takes a function 🤔
+
+```typescript
+type Ref<T> = RefCallback<T> | RefObject<T> | null
+```
+
+When passing a reference to a React element from `useRef()` hook, it's pretty much a syntatic sugar for:
+
+```jsx
+<input
+  ref={(node) => {
+    ref.current = node
+  }}
+  defaultValue="Hey there"
+/>
+```
+
+So, all ref props are nothing more than just a function and these functions run after rendering.
+
+Well I guess I probably can just focus an input whenever it is rendered:
+
+```jsx
+<input
+  ref={(node) => {
+    node?.focus()
+  }}
+  defaultValue="Hello world"
+/>
+```
+
+Well, this is fine... if I wanted to focus the input element everytime the component re-renders. I mean... probably not right?
+
+## useCallback to the rescue!
+
+Since React uses referential stability to check if the callback ref should run or not, it will skip if the same ref was passed in.
