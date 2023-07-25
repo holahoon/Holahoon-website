@@ -1,6 +1,7 @@
 /** Contentlayer specific configuration */
 
 import { defineDocumentType, makeSource } from "contentlayer/source-files"
+import remarkGfm from "remark-gfm"
 
 const calculateReadingTime = (rawText) => {
   const wpm = 215
@@ -58,4 +59,8 @@ export const Life = defineDocumentType(() => ({
 export default makeSource({
   contentDirPath: "src/articles",
   documentTypes: [Til, Life],
+  mdx: {
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [],
+  },
 })
