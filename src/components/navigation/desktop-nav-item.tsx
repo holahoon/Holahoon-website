@@ -17,14 +17,15 @@ export default function DesktopNavItem() {
 
   const measureRef = useCallback<(node: HTMLAnchorElement | null) => void>(
     (node) => {
-      if (!navList.map(({ link }) => link).includes(pathname)) {
+      // Do nothing if pathname isn't included in navList
+      if (!navList.some(({ link }) => pathname.includes(link))) {
         setDimension(null)
         return
       }
 
       if (node) {
         const { id, offsetWidth: width, offsetLeft: left } = node
-        if (id === pathname) setDimension({ id, width, left })
+        if (pathname.includes(id)) setDimension({ id, width, left })
       }
     },
     [pathname]

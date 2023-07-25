@@ -1,11 +1,11 @@
 ---
-title: Using callback refs!
-description: Stop using useEffect to get accessed to refs. Use callback refs!
-date: 2023-07-24
+title: Using callback refs
+description: Stop using useEffect accessing DOM nodes. Use callback refs!
+date: 2023-07-25
 category: React
 ---
 
-# Stop trying to interact with refs in useEffect
+# Use callback refs instead of useEffect
 
 ## Interacting with refs
 
@@ -72,7 +72,7 @@ This is a problem.
 
 ## Callback Refs
 
-Notice the [type declarations](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/fc9b16957473f81a1d708e6948b8d61e292aeb58/types/react/v17/index.d.ts#L85) of refs. Not only it accepts an object, but it also takes a function 🤔
+Notice the [type declarations](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/fc9b16957473f81a1d708e6948b8d61e292aeb58/types/react/v17/index.d.ts#L85) of refs. Not only it accepts an object, but it also takes a function 🙃
 
 ```typescript
 type Ref<T> = RefCallback<T> | RefObject<T> | null
@@ -106,4 +106,50 @@ Well, this is fine... if I wanted to focus the input element everytime the compo
 
 ## useCallback to the rescue!
 
-Since React uses referential stability to check if the callback ref should run or not, it will skip if the same ref was passed in.
+Since React uses referential stability to check if the callback ref should run or not and it will skip if the same reference was passed in.
+By using `useCallback`, we can prevent the function from being created everytime a component re-renders.
+
+```jsx
+const ref = React.useCallback((node) => {
+  node?.focus()
+}, [])
+
+return <input ref={ref} defaultValue="Hey there" />
+```
+
+This is great! Since callback ref is bound to the DOM node, it will always work 😎
+
+Here's how I created the sliding underline effect under the navigation menu items.
+
+```tsx
+// (...)
+const pathname = usePathname()
+const [dimension, setDimension] = useState<{
+  id: string
+  width: number
+  left: number
+} | null>(null)
+
+const measureRef = useCallback<(node: HTMLAnchorElement | null) => void>(
+  (node) => {
+    // extra logic...
+
+    if (node) {
+      const { id, offsetWidth: width, offsetLeft: left } = node
+      if (pathname.includes(id)) setDimension({ id, width, left })
+    }
+  },
+  [pathname]
+)
+return (
+  {/* ... */}
+  <Link ref={measureRef} href={link} id={link} ...>{label}</Link>
+  {/* ... */}
+)
+```
+
+The `measureRef` function will only be created whenever the `pathname` variable changes, and it will always have the value of the DOM node that it is referenced to 🤗
+
+That is it!
+
+Thanks to TkDodo's [avoiding useEffect with callback refs](https://tkdodo.eu/blog/avoiding-use-effect-with-callback-refs) blog!

@@ -1,19 +1,19 @@
-export const NAV_TIL = {
+interface Nav {
+  link: string
+  label: string
+}
+
+export const NAV_TIL: Nav = {
   link: "/til",
   label: "TIL",
-} as const
-export const NAV_PROJECTS = {
+}
+export const NAV_PROJECTS: Nav = {
   link: "/projects",
   label: "Projects",
-} as const
-export const NAV_LIFE = {
+}
+export const NAV_LIFE: Nav = {
   link: "/life",
   label: "Life",
-} as const
+}
 
-// export const navList = [NAV_TIL, NAV_PROJECTS, NAV_LIFE]
-export const navList = [
-  { link: "/til", label: "TIL" },
-  { link: "/projects", label: "Projects" },
-  { link: "/life", label: "Life" },
-]
+export const navList: Nav[] = [NAV_TIL, NAV_PROJECTS, NAV_LIFE]

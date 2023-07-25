@@ -3,7 +3,7 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files"
 
 const calculateReadingTime = (rawText) => {
-  const wpm = 185
+  const wpm = 215
   const countedWords = rawText.split(/(\s+)/)
   const minutes = countedWords.length / wpm
   return Math.ceil(minutes)
