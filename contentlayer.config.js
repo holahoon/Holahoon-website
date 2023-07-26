@@ -1,6 +1,11 @@
 /** Contentlayer specific configuration */
 
 import { defineDocumentType, makeSource } from "contentlayer/source-files"
+import rehypeAccessibleEmojis from "rehype-accessible-emojis"
+import rehypeAutolinkHeadings from "rehype-autolink-headings"
+import rehypeCodeTitles from "rehype-code-titles"
+import rehypePrettyCode from "rehype-pretty-code"
+import rehypeSlug from "rehype-slug"
 import remarkGfm from "remark-gfm"
 
 const calculateReadingTime = (rawText) => {
@@ -8,6 +13,11 @@ const calculateReadingTime = (rawText) => {
   const countedWords = rawText.split(/(\s+)/)
   const minutes = countedWords.length / wpm
   return Math.ceil(minutes)
+}
+
+/** @type {import('rehype-pretty-code').Options} */
+const rehypePrettyCodeOptions = {
+  theme: "one-dark-pro",
 }
 
 const computedFields = {
@@ -61,6 +71,12 @@ export default makeSource({
   documentTypes: [Til, Life],
   mdx: {
     remarkPlugins: [remarkGfm],
-    rehypePlugins: [],
+    rehypePlugins: [
+      rehypeAccessibleEmojis,
+      rehypeAutolinkHeadings,
+      rehypeCodeTitles,
+      rehypeSlug,
+      [rehypePrettyCode, rehypePrettyCodeOptions],
+    ],
   },
 })
