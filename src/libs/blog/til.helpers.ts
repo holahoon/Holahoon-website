@@ -20,3 +20,7 @@ export const getTilCategories = async (): Promise<Til["category"][]> => {
   const categories = allTils.map((post) => post.category)
   return categories.filter((post, idx, array) => array.indexOf(post) === idx)
 }
+
+export const ss = async () => {
+  console.log(allTils)
+}

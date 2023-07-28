@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation"
 
-import { getTilsFromParams } from "@/libs/blog"
+import { getTilsFromParams, ss } from "@/libs/blog"
 import Mdx from "@/components/mdx/mdx-component"
 
 interface PageProps {
@@ -10,6 +10,7 @@ interface PageProps {
 export default async function BlogPage(props: PageProps) {
   const { params } = props
   const post = await getTilsFromParams(params)
+  const s = await ss()
 
   if (!post) notFound()
 
