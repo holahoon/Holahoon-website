@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { type HTMLAttributes } from "react"
 
 import { useActiveItem, useMounted } from "@/hooks/common"
@@ -16,18 +17,19 @@ export default function AsideMenu(props: MenuAsideProps) {
 
   const isMounted = useMounted()
   const activeItemId = useActiveItem(menus)
+  const params = usePathname()
+  console.log(params)
+  console.log(menus)
 
   return (
     <aside
       className={cn(
-        "sticky top-[140px] mr-4 h-full w-full max-w-[150px]",
+        "sticky top-[123px] mr-4 h-full w-full max-w-[150px]",
         className
       )}
     >
       {isMounted ? (
         <nav>
-          <div className="mb-6 text-lg font-medium">Categories</div>
-
           <ul>
             {menus.map((menu) => (
               <li key={menu} className="mb-2 last:mb-0">

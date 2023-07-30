@@ -16,11 +16,12 @@ export const getTilsFromParams = async (params: {
   return post
 }
 
-export const getTilCategories = async (): Promise<Til["category"][]> => {
+export const getUniqueTilCategories = async (): Promise<Til["category"][]> => {
   const categories = allTils.map((post) => post.category)
   return categories.filter((post, idx, array) => array.indexOf(post) === idx)
 }
 
-export const ss = async () => {
-  console.log(allTils)
+export const getUniqueFileDirectories = async () => {
+  const directories = allTils.map((post) => post.directory)
+  return directories.filter((dir, idx, array) => array.indexOf(dir) === idx)
 }

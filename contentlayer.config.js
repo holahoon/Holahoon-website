@@ -20,12 +20,16 @@ const rehypePrettyCodeOptions = {
   theme: "one-dark-pro",
 }
 
+/** @type {import('contentlayer/source-files').ComputedFields} */
 const computedFields = {
   slug: {
     type: "string",
     resolve: (doc) => doc._raw.flattenedPath,
   },
-  directory: { type: "string", resolve: (doc) => doc._raw.sourceFileDir },
+  directory: {
+    type: "string",
+    resolve: (doc) => doc._raw.sourceFileDir,
+  },
   slugAsParams: {
     type: "string",
     resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
@@ -36,6 +40,7 @@ const computedFields = {
   },
 }
 
+/** @type {import('contentlayer/source-files').DocumentTypeDef} */
 export const Til = defineDocumentType(() => ({
   name: "Til",
   filePathPattern: "til/**/*.mdx",

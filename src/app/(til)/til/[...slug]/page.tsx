@@ -1,6 +1,7 @@
+import { readdir } from "fs/promises"
 import { notFound } from "next/navigation"
 
-import { getTilsFromParams, ss } from "@/libs/blog"
+import { getTilsFromParams, getUniqueFileDirectories } from "@/libs/blog"
 import Mdx from "@/components/mdx/mdx-component"
 
 interface PageProps {
@@ -10,7 +11,11 @@ interface PageProps {
 export default async function BlogPage(props: PageProps) {
   const { params } = props
   const post = await getTilsFromParams(params)
-  const s = await ss()
+  const s = await getUniqueFileDirectories()
+
+  console.log("dir: ", __dirname)
+  const directories = await readdir("src/articles/til")
+  console.log("f: ", directories)
 
   if (!post) notFound()
 
