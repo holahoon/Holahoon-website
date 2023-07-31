@@ -52,7 +52,7 @@ export const Til = defineDocumentType(() => ({
     tags: { type: "list", of: { type: "string" }, required: false },
     category: {
       type: "enum",
-      options: ["JavaScript", "React", "CSS"],
+      options: ["JavaScript", "ReactJS", "CSS"],
       required: true,
     },
   },

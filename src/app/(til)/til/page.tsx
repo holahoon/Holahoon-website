@@ -1,12 +1,14 @@
 import { allTils, type Til } from "contentlayer/generated"
 
-import { getUniqueTilCategories } from "@/libs/blog"
+import { getTilDirectories } from "@/libs/blog"
 import List from "@/components/blog/list"
 import AsideMenu from "@/components/blog/menu-aside"
 import PageHeader from "@/components/layout/page-header"
 
+const DIR = "src/articles/til"
+
 export default async function Til() {
-  const categories = await getUniqueTilCategories()
+  const categories = await getTilDirectories(DIR)
 
   return (
     <section>

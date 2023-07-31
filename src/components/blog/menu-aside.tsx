@@ -18,8 +18,6 @@ export default function AsideMenu(props: MenuAsideProps) {
   const isMounted = useMounted()
   const activeItemId = useActiveItem(menus)
   const params = usePathname()
-  console.log(params)
-  console.log(menus)
 
   return (
     <aside

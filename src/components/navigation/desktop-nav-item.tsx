@@ -4,8 +4,8 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useCallback, useState } from "react"
 
-import { navList } from "@/libs/nav-list"
 import { cn } from "@/libs/utils/utils.helpers"
+import { navList } from "@/config/nav-list"
 
 export default function DesktopNavItem() {
   const pathname = usePathname()
