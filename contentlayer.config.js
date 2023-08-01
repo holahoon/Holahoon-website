@@ -50,13 +50,25 @@ export const Til = defineDocumentType(() => ({
     description: { type: "string", required: true },
     date: { type: "string", required: true },
     tags: { type: "list", of: { type: "string" }, required: false },
+  },
+  computedFields: {
+    readTime: {
+      type: "number",
+      resolve: (doc) => calculateReadingTime(doc.body.raw),
+    },
     category: {
-      type: "enum",
-      options: ["JavaScript", "ReactJS", "CSS"],
-      required: true,
+      type: "string",
+      resolve: (doc) => doc._raw.sourceFileDir.split("/")[1],
+    },
+    slug: {
+      type: "string",
+      resolve: (doc) => doc._raw.flattenedPath,
+    },
+    slugAsParams: {
+      type: "string",
+      resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
     },
   },
-  computedFields,
 }))
 
 export const Life = defineDocumentType(() => ({

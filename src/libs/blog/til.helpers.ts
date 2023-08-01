@@ -2,6 +2,7 @@ import { readdir } from "fs/promises"
 import { allTils, type Til } from "contentlayer/generated"
 
 import { directoryMapper } from "./til.constants"
+import { Directories } from "./til.types"
 
 /** TIL */
 
@@ -28,9 +29,13 @@ export const getUniqueTilCategories = async (): Promise<Til["category"][]> => {
   return categories.filter((post, idx, array) => array.indexOf(post) === idx)
 }
 
-export const getTilDirectories = async (
-  dir: string
-): Promise<Til["category"][]> => {
+export const getTilDirectories = async (dir: string): Promise<Directories> => {
   const directories = await readdir(dir)
-  return directories.map((directory) => directoryMapper[directory])
+  return directories.reduce(
+    (dirs, dir) => ({
+      ...dirs,
+      [dir]: directoryMapper[dir],
+    }),
+    {} as Directories
+  )
 }

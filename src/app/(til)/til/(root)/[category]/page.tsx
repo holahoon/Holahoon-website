@@ -1,4 +1,4 @@
-import { getTilsByCategory } from "@/libs/blog"
+import { directoryMapper, getTilsByCategory } from "@/libs/blog"
 import Card from "@/components/blog/card"
 import CategoryHeader from "@/components/blog/category-header"
 
@@ -14,8 +14,8 @@ export default async function CategoryPage(props: PageProps) {
   const tils = await getTilsByCategory(category)
 
   return (
-    <section>
-      <CategoryHeader>{category}</CategoryHeader>
+    <section className="w-full">
+      <CategoryHeader>{directoryMapper[category]}</CategoryHeader>
 
       <div>
         <ul>

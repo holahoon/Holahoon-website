@@ -11,7 +11,7 @@ export default async function Til() {
   const categories = await getTilDirectories(DIR)
 
   return (
-    <section>
+    <section className="w-full">
       <PageHeader header="Today I Learned">
         <p className="text-primary/90">I share nuggets of knowledge</p>
         <p className="text-primary/90">
@@ -20,16 +20,13 @@ export default async function Til() {
       </PageHeader>
 
       <div>
-        {categories.map((category) => (
-          <div key={`blog-${category}`} className="mb-20">
-            <CategoryHeader
-              id={category as string}
-              className="scroll-m-[140px]"
-            >
+        {Object.entries(categories).map(([key, category]) => (
+          <div key={`blog-${key}`} className="mb-20">
+            <CategoryHeader id={key as string} className="scroll-m-[140px]">
               {category}
             </CategoryHeader>
 
-            <List category={category} contents={allTils} />
+            <List category={key} contents={allTils} />
           </div>
         ))}
       </div>

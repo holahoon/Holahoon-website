@@ -15,7 +15,7 @@ export default async function TilLayout(props: TilLayoutProps) {
   const directories = await getTilDirectories(DIR)
 
   return (
-    <main className="mt-12 flex">
+    <main className="mt-12 flex flex-1">
       <AsideMenu menus={directories} className="hidden md:block" />
       {children}
     </main>
