@@ -4,7 +4,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { type HTMLAttributes } from "react"
 
-import { useActiveItem, useMounted } from "@/hooks/common"
+import { useMounted } from "@/hooks/common"
 import { cn } from "@/libs/utils/utils.helpers"
 import NavSkeleton from "./nav-skeleton"
 
@@ -16,7 +16,6 @@ export default function AsideMenu(props: MenuAsideProps) {
   const { menus, className } = props
 
   const isMounted = useMounted()
-  const activeItemId = useActiveItem(menus)
   const params = usePathname()
 
   return (
@@ -32,10 +31,10 @@ export default function AsideMenu(props: MenuAsideProps) {
             {menus.map((menu) => (
               <li key={menu} className="mb-2 last:mb-0">
                 <Link
-                  href={`#${menu}`}
+                  href={`/til/${menu}`}
                   className={cn(
                     "duration-300 hover:text-foreground",
-                    menu === activeItemId
+                    params.includes(menu)
                       ? "font-medium text-foreground"
                       : "text-foreground/70"
                   )}

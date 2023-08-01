@@ -13,10 +13,14 @@ export const getTilsFromParams = async (params: {
   slug: string[]
 }): Promise<Til | null> => {
   const slug = params.slug?.join("/")
-  const post = allTils.find((post) => post.slugAsParams === slug)
+  const til = allTils.find((til) => til.slugAsParams === slug)
 
-  if (!post) return null
-  return post
+  if (!til) return null
+  return til
+}
+
+export const getTilsByCategory = async (category: string): Promise<Til[]> => {
+  return allTils.filter((til) => til.category === category)
 }
 
 export const getUniqueTilCategories = async (): Promise<Til["category"][]> => {

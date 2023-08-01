@@ -1,8 +1,8 @@
 import { allTils, type Til } from "contentlayer/generated"
 
 import { getTilDirectories } from "@/libs/blog"
+import CategoryHeader from "@/components/blog/category-header"
 import List from "@/components/blog/list"
-import AsideMenu from "@/components/blog/menu-aside"
 import PageHeader from "@/components/layout/page-header"
 
 const DIR = "src/articles/til"
@@ -19,15 +19,15 @@ export default async function Til() {
         </p>
       </PageHeader>
 
-      <div className="min-w-0">
+      <div>
         {categories.map((category) => (
           <div key={`blog-${category}`} className="mb-20">
-            <h2
-              id={category}
-              className="mb-6 scroll-m-[140px] text-2xl font-semibold"
+            <CategoryHeader
+              id={category as string}
+              className="scroll-m-[140px]"
             >
               {category}
-            </h2>
+            </CategoryHeader>
 
             <List category={category} contents={allTils} />
           </div>
