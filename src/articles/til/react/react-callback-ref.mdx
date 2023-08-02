@@ -2,7 +2,6 @@
 title: Using callback refs
 description: Stop using useEffect accessing DOM nodes. Use callback refs!
 date: 2023-07-25
-category: ReactJS
 ---
 
 # Use callback refs instead of useEffect
@@ -17,7 +16,7 @@ React sets the DOM node in the ref after it was rendered and sets it back to _nu
 
 What if I want to focus an input element after the render? I could simply use `useEffect()` hook and focus on the element.
 
-```jsx
+```tsx
 const inputRef = React.useRef(null)
 return <input ref={ref} defaultValue="Hey there" />
 
@@ -35,7 +34,7 @@ Well, this is _not_ the best way. It has some caveats in certain advanced situat
 >
 > - TkDodo
 
-```jsx
+```tsx
 function App() {
   const ref = React.useRef(null)
 
@@ -80,7 +79,7 @@ type Ref<T> = RefCallback<T> | RefObject<T> | null
 
 When passing a reference to a React element from `useRef()` hook, it's pretty much a syntatic sugar for:
 
-```jsx
+```tsx {1-2,4}
 <input
   ref={(node) => {
     ref.current = node
@@ -93,7 +92,7 @@ So, all ref props are nothing more than just a function and these functions run 
 
 Well I guess I probably can just focus an input whenever it is rendered:
 
-```jsx
+```tsx title="node"
 <input
   ref={(node) => {
     node?.focus()
@@ -109,7 +108,7 @@ Well, this is fine... if I wanted to focus the input element everytime the compo
 Since React uses referential stability to check if the callback ref should run or not and it will skip if the same reference was passed in.
 By using `useCallback`, we can prevent the function from being created everytime a component re-renders.
 
-```jsx
+```tsx /node/#v /focus/#c
 const ref = React.useCallback((node) => {
   node?.focus()
 }, [])
@@ -121,7 +120,7 @@ This is great! Since callback ref is bound to the DOM node, it will always work 
 
 Here's how I created the sliding underline effect under the navigation menu items.
 
-```tsx
+```tsx title="desktop-nav-item.tsx"
 // (...)
 const pathname = usePathname()
 const [dimension, setDimension] = useState<{
@@ -143,7 +142,7 @@ const measureRef = useCallback<(node: HTMLAnchorElement | null) => void>(
 )
 return (
   {/* ... */}
-  <Link ref={measureRef} href={link} id={link} ...>{label}</Link>
+  <Link ref={measureRef} href={link} id={link}>{label}</Link>
   {/* ... */}
 )
 ```

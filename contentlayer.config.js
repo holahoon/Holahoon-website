@@ -1,9 +1,6 @@
 /** Contentlayer specific configuration */
 
 import { defineDocumentType, makeSource } from "contentlayer/source-files"
-import rehypeAccessibleEmojis from "rehype-accessible-emojis"
-import rehypeAutolinkHeadings from "rehype-autolink-headings"
-import rehypeCodeTitles from "rehype-code-titles"
 import rehypePrettyCode from "rehype-pretty-code"
 import rehypeSlug from "rehype-slug"
 import remarkGfm from "remark-gfm"
@@ -18,6 +15,9 @@ const calculateReadingTime = (rawText) => {
 /** @type {import('rehype-pretty-code').Options} */
 const rehypePrettyCodeOptions = {
   theme: "one-dark-pro",
+  onVisitLine(node) {
+    if (!node.children.length) node.children = [{ type: "text", value: " " }]
+  },
 }
 
 /** @type {import('contentlayer/source-files').ComputedFields} */
@@ -89,10 +89,10 @@ export default makeSource({
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
-      rehypeAccessibleEmojis,
-      rehypeAutolinkHeadings,
-      rehypeCodeTitles,
       rehypeSlug,
+      // rehypeAccessibleEmojis,
+      // rehypeAutolinkHeadings,
+      // rehypeCodeTitles,
       [rehypePrettyCode, rehypePrettyCodeOptions],
     ],
   },
