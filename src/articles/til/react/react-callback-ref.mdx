@@ -103,7 +103,7 @@ Well I guess I probably can just focus an input whenever it is rendered:
 
 Well, this is fine... if I wanted to focus the input element everytime the component re-renders. I mean... probably not right?
 
-## useCallback to the rescue!
+## `useCallback` to the rescue!
 
 Since React uses referential stability to check if the callback ref should run or not and it will skip if the same reference was passed in.
 By using `useCallback`, we can prevent the function from being created everytime a component re-renders.
@@ -117,6 +117,8 @@ return <input ref={ref} defaultValue="Hey there" />
 ```
 
 This is great! Since callback ref is bound to the DOM node, it will always work 😎
+
+## My implementation
 
 Here's how I created the sliding underline effect under the navigation menu items.
 

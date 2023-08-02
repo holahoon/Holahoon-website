@@ -17,7 +17,7 @@ const components: MDXComponents = {
   h2: ({ className, ...rest }) => (
     <h2
       className={cn(
-        "mt-10 scroll-m-20 border-b pb-4 text-3xl font-semibold tracking-tight first:mt-0",
+        "mt-10 scroll-m-20 border-b pb-3 text-3xl font-semibold tracking-tight first:mt-0",
         className
       )}
       {...rest}
@@ -125,14 +125,14 @@ const components: MDXComponents = {
   ),
   pre: ({ className, ...rest }) => (
     <pre
-      className={cn("overflow-x-auto rounded-md border p-4", className)}
+      className={cn("overflow-x-auto rounded-md p-4", className)}
       {...rest}
     />
   ),
   code: ({ className, ...rest }) => (
     <code
       className={cn(
-        "relative rounded border px-[0.3rem] py-[0.2rem] font-mono text-sm",
+        "relative rounded bg-secondary px-2 py-1 font-mono text-[calc(1em-(1em*0.15))]",
         className
       )}
       {...rest}
