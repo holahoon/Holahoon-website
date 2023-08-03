@@ -12,5 +12,5 @@ export const metadata = {
 export default function HomeLayout(props: LayoutProps) {
   const { children } = props
 
-  return <main className="mt-12 flex flex-1 flex-col">{children}</main>
+  return <div className="mt-12 flex h-full flex-col ">{children}</div>
 }

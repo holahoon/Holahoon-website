@@ -54,7 +54,7 @@ export default function DesktopNavItem() {
           width: `${dimension?.width ?? 0}px`,
         }}
         className={cn(
-          "absolute bottom-0 left-0 h-[2px] w-[100px] rounded-md bg-primary/70 transition-all duration-200"
+          "absolute -bottom-[calc(0.75rem+1px)] left-0 h-[2px] w-[100px] rounded-md bg-primary/70 transition-all duration-200"
         )}
       />
     </ul>

@@ -27,4 +27,4 @@ function Button(props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) {
 
 Button.displayName = "Button"
 
-export default forwardRef(Button)
+export default forwardRef<HTMLButtonElement, ButtonProps>(Button)

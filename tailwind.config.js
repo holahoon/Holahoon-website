@@ -45,6 +45,9 @@ module.exports = {
         ring: "hsl(var(--ring))",
         link: "hsl(var(--link))",
       },
+      boxShadow: {
+        nav: "0px 1px 6px 0px hsl(var(--accent))",
+      },
     },
   },
   plugins: [require("@tailwindcss/typography"), require("tailwindcss-animate")],

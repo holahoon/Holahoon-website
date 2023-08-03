@@ -17,8 +17,6 @@ export default async function BlogPage(props: PageProps) {
 
   return (
     // <div className="prose mx-auto dark:prose-invert">
-    <div className="mx-auto">
-      <Mdx code={post.body.code} />
-    </div>
+    <Mdx code={post.body.code} />
   )
 }

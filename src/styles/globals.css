@@ -3,6 +3,17 @@
 @tailwind utilities;
 
 @layer base {
+  * {
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth !important;
+    @apply h-full;
+  }
+  body {
+    @apply h-full;
+  }
+
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 47.4% 11.2%;
@@ -67,17 +78,5 @@
     --destructive-foreground: 0 85.7% 97.3%;
 
     --ring: 240 3.7% 15.9%;
-  }
-}
-
-@layer base {
-  * {
-    box-sizing: border-box;
-  }
-  html {
-    scroll-behavior: smooth !important;
-  }
-  body {
-    @apply bg-background text-foreground;
   }
 }

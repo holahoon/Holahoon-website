@@ -1,9 +1,10 @@
 import { Work_Sans } from "next/font/google"
-import type { ReactNode } from "react"
+import { type ReactNode } from "react"
 
 import { ThemeProvider } from "@/providers/theme-provider"
 import { cn } from "@/libs/utils/utils.helpers"
 import Footer from "@/components/footer"
+import LayoutWrapper from "@/components/layout/layout-wrapper"
 import Navigation from "@/components/navigation/navigation"
 
 import "../styles/globals.css"
@@ -27,21 +28,18 @@ export default function RootLayout(props: RootLayoutProps) {
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={cn(
-          font.className,
-          "mx-auto min-h-screen max-w-screen-full px-4 md:px-12"
-        )}
-      >
+      <body className={cn(font.className, "bg-background")}>
         <ThemeProvider
           defaultTheme="system"
           attribute="class"
           themes={themes}
           enableSystem
         >
-          <div className="flex min-h-screen flex-col">
+          <div className="flex h-full flex-col">
             <Navigation />
-            {children}
+            <main className="flex-1">
+              <LayoutWrapper className="h-full">{children}</LayoutWrapper>
+            </main>
             <Footer />
           </div>
         </ThemeProvider>

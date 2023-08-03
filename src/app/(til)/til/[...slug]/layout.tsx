@@ -7,5 +7,6 @@ interface TilSlugLayoutProps {
 export default function TilSlugLayout(props: TilSlugLayoutProps) {
   const { children } = props
 
-  return <main>{children}</main>
+  return children
+  // return <main className="mx-auto mt-12 w-full flex-1">{children}</main>
 }

@@ -12,5 +12,5 @@ export const metadata = {
 export default function LifeLayout(props: LayoutProps) {
   const { children } = props
 
-  return <main className="mt-12 flex flex-1 flex-col">{children}</main>
+  return <div className="flex h-full flex-1 flex-col">{children}</div>
 }
