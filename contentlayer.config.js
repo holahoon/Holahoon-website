@@ -49,7 +49,7 @@ export const Til = defineDocumentType(() => ({
     title: { type: "string", required: true },
     description: { type: "string", required: true },
     date: { type: "string", required: true },
-    tags: { type: "list", of: { type: "string" }, required: false },
+    // tags: { type: "list", of: { type: "string" }, required: false },
   },
   computedFields: {
     readTime: {
@@ -62,11 +62,17 @@ export const Til = defineDocumentType(() => ({
     },
     slug: {
       type: "string",
-      resolve: (doc) => doc._raw.flattenedPath,
+      resolve: (doc) => {
+        const paths = doc._raw.flattenedPath.split("/")
+        return paths[0] + "/" + paths[paths.length - 1]
+      },
     },
     slugAsParams: {
       type: "string",
-      resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
+      resolve: (doc) => {
+        const paths = doc._raw.flattenedPath.split("/")
+        return paths[paths.length - 1]
+      },
     },
   },
 }))

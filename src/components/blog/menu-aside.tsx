@@ -1,28 +1,37 @@
 "use client"
 
 import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { type HTMLAttributes } from "react"
+import { useSearchParams } from "next/navigation"
 
 import { useMounted } from "@/hooks/common"
 import type { Directories } from "@/libs/blog"
 import { cn } from "@/libs/utils/utils.helpers"
 import NavSkeleton from "./nav-skeleton"
 
-interface MenuAsideProps extends HTMLAttributes<HTMLElement> {
+interface AsideMenuItemsProps {
   menus: Directories
+  className?: string
 }
 
 const HIGLIGHT = "font-medium text-foreground"
 const NORMAL = "text-foreground/70"
+const CATEGORY = "category"
 
-export default function AsideMenu(props: MenuAsideProps) {
+const checkSearchParams = (query: string | null, param: string): boolean => {
+  if (!query) return !!query
+  return query.includes(param)
+}
+
+export default function AsideMenuItems(props: AsideMenuItemsProps) {
   const { menus, className } = props
 
   const isMounted = useMounted()
-  const params = usePathname()
+  const searchParams = useSearchParams()
+  const categorySearch = searchParams.get(CATEGORY)
 
-  const isMainPath = Object.keys(menus).every((menu) => !params.includes(menu))
+  const isMainPath = Object.keys(menus).every(
+    (menu) => !checkSearchParams(categorySearch, menu)
+  )
 
   return (
     <aside
@@ -47,10 +56,10 @@ export default function AsideMenu(props: MenuAsideProps) {
             {Object.entries(menus).map(([key, menu]) => (
               <li key={menu} className="mb-2 last:mb-0">
                 <Link
-                  href={`/til/${key}`}
+                  href={{ pathname: "/til", query: { category: key } }}
                   className={cn(
                     "duration-300 hover:text-foreground",
-                    params.includes(key) ? HIGLIGHT : NORMAL
+                    checkSearchParams(categorySearch, key) ? HIGLIGHT : NORMAL
                   )}
                 >
                   {menu}

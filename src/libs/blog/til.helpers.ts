@@ -24,6 +24,10 @@ export const getTilsByCategory = async (category: string): Promise<Til[]> => {
   return allTils.filter((til) => til.category === category)
 }
 
+export const getTilsByCategories = async (categories: string[]): Promise<> => {
+  // return categories.
+}
+
 export const getUniqueTilCategories = async (): Promise<Til["category"][]> => {
   const categories = allTils.map((post) => post.category)
   return categories.filter((post, idx, array) => array.indexOf(post) === idx)

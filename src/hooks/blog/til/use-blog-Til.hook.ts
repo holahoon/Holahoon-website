@@ -29,12 +29,12 @@ export function useGetTilCategories(contents: Til[]): Til["category"][] {
 
 export function useGetTilByCategories(
   contents: Til[],
-  category: Til["category"]
+  category: Til["category"] | null
 ): Til[] {
-  return useMemo(
-    () => contents.filter((post) => post.category === category),
-    [contents, category]
-  )
+  return useMemo(() => {
+    if (!category) return contents
+    return contents.filter((post) => post.category === category)
+  }, [contents, category])
 }
 
 interface BeginningOption {

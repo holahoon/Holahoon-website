@@ -1,22 +1,17 @@
 import { type ReactNode } from "react"
 
-import { getTilDirectories } from "@/libs/blog"
-import AsideMenu from "@/components/blog/menu-aside"
+import AsideMenu from "@/components/til/aside-menu"
 
 interface TilLayoutProps {
   children: ReactNode
 }
 
-const DIR = "src/articles/til"
-
 export default async function TilLayout(props: TilLayoutProps) {
   const { children } = props
 
-  const directories = await getTilDirectories(DIR)
-
   return (
     <div className="flex">
-      <AsideMenu menus={directories} className="hidden md:block" />
+      <AsideMenu />
       {children}
     </div>
   )

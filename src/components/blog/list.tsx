@@ -17,14 +17,12 @@ const MAX_QTY = 6
 export default function List(props: ListProps) {
   const { contents, category } = props
 
-  const TilsByCategory = useGetTilByCategories(contents, category)
-  const sortedTils = useSortTilByDate(TilsByCategory, "desc")
+  const tilsByCategory = useGetTilByCategories(contents, category)
+  const sortedTils = useSortTilByDate(tilsByCategory, "desc")
   const numberOfTils = useGetNumberOfTil(sortedTils, {
     position: "beginning",
     until: MAX_QTY,
   })
-
-  if (!numberOfTils.length) return <div>Contents coming up</div>
 
   return (
     <ul>
