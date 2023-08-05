@@ -4,17 +4,18 @@ import Link from "next/link"
 import { useSearchParams } from "next/navigation"
 
 import { useMounted } from "@/hooks/common"
-import type { Directories } from "@/libs/blog"
+import type { Directories, TilCounts } from "@/libs/blog"
 import { cn } from "@/libs/utils/utils.helpers"
 import NavSkeleton from "./nav-skeleton"
 
 interface AsideMenuItemsProps {
   menus: Directories
+  tilCounts: TilCounts
   className?: string
 }
 
 const HIGLIGHT = "font-medium text-foreground"
-const NORMAL = "text-foreground/70"
+const NORMAL = "text-foreground/80"
 const CATEGORY = "category"
 
 const checkSearchParams = (query: string | null, param: string): boolean => {
@@ -23,7 +24,7 @@ const checkSearchParams = (query: string | null, param: string): boolean => {
 }
 
 export default function AsideMenuItems(props: AsideMenuItemsProps) {
-  const { menus, className } = props
+  const { menus, tilCounts, className } = props
 
   const isMounted = useMounted()
   const searchParams = useSearchParams()
@@ -64,6 +65,9 @@ export default function AsideMenuItems(props: AsideMenuItemsProps) {
                 >
                   {menu}
                 </Link>
+                <span className="ml-1 text-sm text-foreground/70">
+                  ({tilCounts[key]})
+                </span>
               </li>
             ))}
           </ul>

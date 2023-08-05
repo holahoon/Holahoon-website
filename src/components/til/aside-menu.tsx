@@ -1,6 +1,6 @@
 import { allTils } from "contentlayer/generated"
 
-import { getTilDirectories, getTilsByCategory } from "@/libs/blog"
+import { getTilCountsByCategories, getTilDirectories } from "@/libs/blog"
 import AsideMenuItems from "@/components/blog/menu-aside"
 
 const DIR = "src/articles/til"
@@ -8,7 +8,14 @@ const DIR = "src/articles/til"
 export default async function AsideMenu() {
   const directories = await getTilDirectories(DIR)
 
-  const tils = await getTilsByCategory()
+  const tilCounts = await getTilCountsByCategories()
+  console.log(tilCounts)
 
-  return <AsideMenuItems menus={directories} className="hidden md:block" />
+  return (
+    <AsideMenuItems
+      menus={directories}
+      tilCounts={tilCounts}
+      className="hidden md:block"
+    />
+  )
 }
