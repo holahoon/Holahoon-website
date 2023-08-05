@@ -4,7 +4,7 @@ import {
   useGetNumberOfTil,
   useGetTilByCategories,
   useSortTilByDate,
-} from "@/hooks/blog"
+} from "@/hooks/til"
 import Card from "./card"
 
 interface ListProps {

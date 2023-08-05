@@ -3,7 +3,7 @@ import { Icons } from "@/components/icons"
 export default async function Home() {
   return (
     <>
-      <div className="mt-10">
+      <div>
         <h1 className="text-5xl font-semibold">Hi! I&apos;m David</h1>
         <h2 className="mt-4 text-3xl font-semibold text-primary/90">
           A Web Developer

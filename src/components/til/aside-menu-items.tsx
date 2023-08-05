@@ -28,8 +28,8 @@ export default function AsideMenuItems(props: AsideMenuItemsProps) {
 
   const isMounted = useMounted()
   const searchParams = useSearchParams()
-  const categorySearch = searchParams.get(CATEGORY)
 
+  const categorySearch = searchParams.get(CATEGORY)
   const isMainPath = Object.keys(menus).every(
     (menu) => !checkSearchParams(categorySearch, menu)
   )

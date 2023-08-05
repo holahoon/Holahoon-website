@@ -1,5 +1,5 @@
 import { getTilCountsByCategories, getTilDirectories } from "@/libs/blog"
-import AsideMenuItems from "@/components/blog/menu-aside"
+import AsideMenuItems from "./aside-menu-items"
 
 const DIR = "src/articles/til"
 

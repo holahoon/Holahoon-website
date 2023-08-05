@@ -4,8 +4,8 @@ import { useSearchParams } from "next/navigation"
 import { type Til } from "contentlayer/generated"
 
 import type { Directories } from "@/libs/blog"
-import CategoryHeader from "@/components/blog/category-header"
-import List from "@/components/blog/list"
+import CategoryHeader from "@/components/til/category-header"
+import List from "./list"
 
 interface ListProps {
   tils: Til[]
