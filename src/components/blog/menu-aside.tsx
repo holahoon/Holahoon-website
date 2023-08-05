@@ -10,7 +10,7 @@ import NavSkeleton from "./nav-skeleton"
 
 interface AsideMenuItemsProps {
   menus: Directories
-  tilCounts: TilCounts
+  tilCounts: TilCounts & { all: number }
   className?: string
 }
 
@@ -44,18 +44,23 @@ export default function AsideMenuItems(props: AsideMenuItemsProps) {
       {isMounted ? (
         <nav>
           <ul>
-            <Link
-              href="/til"
-              className={cn(
-                "mb-2 inline-block duration-300 hover:text-foreground",
-                isMainPath ? HIGLIGHT : NORMAL
-              )}
-            >
-              All
-            </Link>
+            <span className="mb-2 flex items-center ">
+              <Link
+                href="/til"
+                className={cn(
+                  "inline-block duration-300 hover:text-foreground",
+                  isMainPath ? HIGLIGHT : NORMAL
+                )}
+              >
+                All
+              </Link>
+              <span className="ml-1 text-sm text-foreground/70">
+                ({tilCounts.all})
+              </span>
+            </span>
 
             {Object.entries(menus).map(([key, menu]) => (
-              <li key={menu} className="mb-2 last:mb-0">
+              <li key={menu} className="mb-2 flex items-center last:mb-0">
                 <Link
                   href={{ pathname: "/til", query: { category: key } }}
                   className={cn(

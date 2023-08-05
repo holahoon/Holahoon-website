@@ -1,20 +1,23 @@
-import { allTils } from "contentlayer/generated"
-
 import { getTilCountsByCategories, getTilDirectories } from "@/libs/blog"
 import AsideMenuItems from "@/components/blog/menu-aside"
 
 const DIR = "src/articles/til"
 
 export default async function AsideMenu() {
-  const directories = await getTilDirectories(DIR)
+  const [directories, tilCounts] = await Promise.all([
+    getTilDirectories(DIR),
+    getTilCountsByCategories(),
+  ])
 
-  const tilCounts = await getTilCountsByCategories()
-  console.log(tilCounts)
+  const allCounts = {
+    all: Object.values(tilCounts).reduce((tils, til) => tils + til, 0),
+    ...tilCounts,
+  }
 
   return (
     <AsideMenuItems
       menus={directories}
-      tilCounts={tilCounts}
+      tilCounts={allCounts}
       className="hidden md:block"
     />
   )

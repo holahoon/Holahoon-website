@@ -9,7 +9,7 @@ function navigation(_: unknown, ref: ForwardedRef<HTMLElement>) {
   return (
     <header
       ref={ref}
-      className="sticky top-0 isolate z-[999] w-full shadow-nav"
+      className="sticky top-0 isolate z-[999] w-full bg-background shadow-nav"
     >
       <Wrapper>
         <div className="flex items-center py-3">

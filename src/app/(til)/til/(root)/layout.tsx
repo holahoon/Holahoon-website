@@ -10,7 +10,7 @@ export default async function TilLayout(props: TilLayoutProps) {
   const { children } = props
 
   return (
-    <div className="flex">
+    <div className="mt-12 flex">
       <AsideMenu />
       {children}
     </div>
