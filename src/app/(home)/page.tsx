@@ -4,8 +4,8 @@ export default async function Home() {
   return (
     <>
       <div>
-        <h1 className="text-5xl font-semibold">Hi! I&apos;m David</h1>
-        <h2 className="mt-4 text-3xl font-semibold text-primary/90">
+        <h1 className="text-4xl font-semibold">Hi, I&apos;m David</h1>
+        <h2 className="mt-4 text-2xl font-semibold text-primary/90">
           A Web Developer
         </h2>
         <p className="mt-1 text-primary/80">

@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { useSearchParams } from "next/navigation"
+import { useRef } from "react"
 
 import { useMounted } from "@/hooks/common"
 import type { Directories, TilCounts } from "@/libs/blog"
@@ -26,6 +27,8 @@ const checkSearchParams = (query: string | null, param: string): boolean => {
 export default function AsideMenuItems(props: AsideMenuItemsProps) {
   const { menus, tilCounts, className } = props
 
+  const asideRef = useRef<HTMLElement | null>(null)
+
   const isMounted = useMounted()
   const searchParams = useSearchParams()
 
@@ -34,12 +37,16 @@ export default function AsideMenuItems(props: AsideMenuItemsProps) {
     (menu) => !checkSearchParams(categorySearch, menu)
   )
 
+  const asideTopPos = `${asideRef.current?.offsetTop}px`
+
   return (
     <aside
-      className={cn(
-        "sticky top-[123px] mr-4 h-full w-full max-w-[150px]",
-        className
-      )}
+      ref={(node) => {
+        asideRef.current = node
+      }}
+      // TODO: refactor to use tailwind class value instead of inline style (if there's a way)
+      style={{ top: asideTopPos }}
+      className={cn("sticky mr-4 h-full w-full max-w-[150px]", className)}
     >
       {isMounted ? (
         <nav>
