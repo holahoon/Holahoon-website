@@ -15,8 +15,5 @@ export default async function BlogPage(props: PageProps) {
 
   if (!post) notFound()
 
-  return (
-    // <div className="prose mx-auto dark:prose-invert">
-    <Mdx code={post.body.code} />
-  )
+  return <Mdx code={post.body.code} />
 }

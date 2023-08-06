@@ -1,24 +1,85 @@
-import { getTilCountsByCategories, getTilDirectories } from "@/libs/blog"
-import AsideMenuItems from "./aside-menu-items"
+"use client"
 
-const DIR = "src/articles/til"
+import Link from "next/link"
+import { useSearchParams } from "next/navigation"
 
-export default async function AsideMenu() {
-  const [directories, tilCounts] = await Promise.all([
-    getTilDirectories(DIR),
-    getTilCountsByCategories(),
-  ])
+import { useMounted } from "@/hooks/common"
+import type { Directories, TilCounts } from "@/libs/blog"
+import { cn } from "@/libs/utils/utils.helpers"
+import NavSkeleton from "./nav-skeleton"
 
-  const allCounts = {
-    all: Object.values(tilCounts).reduce((tils, til) => tils + til, 0),
-    ...tilCounts,
-  }
+interface AsideMenuProps {
+  menus: Directories
+  tilCounts: TilCounts & { all: number }
+  className?: string
+}
+
+const HIGLIGHT = "font-medium text-foreground"
+const NORMAL = "text-foreground/80"
+const CATEGORY = "category"
+
+const checkSearchParams = (query: string | null, param: string): boolean => {
+  if (!query) return !!query
+  return query.includes(param)
+}
+
+export default function AsideMenu(props: AsideMenuProps) {
+  const { menus, tilCounts, className } = props
+
+  const isMounted = useMounted()
+  const searchParams = useSearchParams()
+
+  const categorySearch = searchParams.get(CATEGORY)
+  const isMainPath = Object.keys(menus).every(
+    (menu) => !checkSearchParams(categorySearch, menu)
+  )
 
   return (
-    <AsideMenuItems
-      menus={directories}
-      tilCounts={allCounts}
-      className="hidden md:block"
-    />
+    <aside
+      className={cn(
+        "sticky top-[130px] mr-4 hidden h-full w-full max-w-[150px] md:block",
+        className
+      )}
+    >
+      {isMounted ? (
+        <nav>
+          <ul>
+            <span className="mb-2 flex items-center ">
+              <Link
+                href="/til"
+                className={cn(
+                  "inline-block duration-300 hover:text-foreground",
+                  isMainPath ? HIGLIGHT : NORMAL
+                )}
+              >
+                All
+              </Link>
+              <span className="ml-1 text-sm text-foreground/70">
+                ({tilCounts.all})
+              </span>
+            </span>
+
+            {Object.entries(menus).map(([key, menu]) => (
+              <li key={menu} className="mb-2 flex items-center last:mb-0">
+                <Link
+                  href={{ pathname: "/til", query: { category: key } }}
+                  className={cn(
+                    "duration-300 hover:text-foreground",
+                    checkSearchParams(categorySearch, key) ? HIGLIGHT : NORMAL
+                  )}
+                >
+                  {menu}
+                </Link>
+                <span className="ml-1 text-sm text-foreground/70">
+                  ({tilCounts[key]})
+                </span>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      ) : (
+        <NavSkeleton />
+      )}
+    </aside>
   )
 }

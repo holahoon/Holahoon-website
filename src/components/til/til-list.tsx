@@ -19,11 +19,11 @@ export default function TilList(props: ListProps) {
   const categorySearch = searchParams.get("category")
 
   return (
-    <div>
+    <div className="w-full">
       {Object.entries(categories)
         .filter((list) => !categorySearch || list[0] === categorySearch)
         .map(([key, category]) => (
-          <div key={`blog-${key}`} className="mb-16">
+          <div key={`blog-${key}`} className="mb-12">
             <CategoryHeader id={key as string} className="scroll-m-[140px]">
               {category}
             </CategoryHeader>

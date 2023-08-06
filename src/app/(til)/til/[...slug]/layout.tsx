@@ -1,5 +1,7 @@
 import { type ReactNode } from "react"
 
+import PrevLink from "@/components/til/prev-link"
+
 interface TilSlugLayoutProps {
   children: ReactNode
 }
@@ -7,6 +9,10 @@ interface TilSlugLayoutProps {
 export default function TilSlugLayout(props: TilSlugLayoutProps) {
   const { children } = props
 
-  return <div className="mt-12">{children}</div>
-  // return <main className="mx-auto mt-12 w-full flex-1">{children}</main>
+  return (
+    <div className="mt-12">
+      <PrevLink />
+      {children}
+    </div>
+  )
 }
