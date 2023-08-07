@@ -35,11 +35,13 @@ export default function RootLayout(props: RootLayoutProps) {
           themes={themes}
           enableSystem
         >
-          <div className="flex h-full flex-col">
+          <div className="flex min-h-[100vh] flex-col">
             <Navigation />
+
             <main className="flex-1">
               <LayoutWrapper className="h-full">{children}</LayoutWrapper>
             </main>
+
             <Footer />
           </div>
         </ThemeProvider>

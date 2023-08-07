@@ -1,4 +1,5 @@
 import {
+  ArrowLeft,
   AtSign,
   Binary,
   Calendar,
@@ -34,11 +35,14 @@ export const Icons = {
   devops: Workflow,
   database: Database,
   algorithm: Binary,
-  arrow: {
+  move: {
     up: MoveUp,
     down: MoveDown,
     right: MoveRight,
     left: MoveLeft,
+  },
+  arrow: {
+    left: ArrowLeft,
   },
   laugh: Laugh,
   eye: Eye,
@@ -51,3 +55,5 @@ export const Icons = {
   at: AtSign,
   construction: Construction,
 }
+
+export type IconsType = typeof Icons

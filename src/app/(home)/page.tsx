@@ -1,5 +1,6 @@
 import { Icons } from "@/components/icons"
 
+// TODO: let's put like a current employment status
 export default async function Home() {
   return (
     <>
@@ -11,9 +12,10 @@ export default async function Home() {
         <p className="mt-1 text-primary/80">
           with a passion for building cool things on the web
         </p>
+        <p>I&apos;m currently looking for my next adventure!</p>
       </div>
 
-      <div className="flex flex-1 flex-col items-center justify-center">
+      <div className="mt-20 flex flex-1 flex-col items-center justify-center">
         <Icons.construction width={100} height={100} />
         <p className="mt-8 text-center text-primary/80">
           In the delightful process of

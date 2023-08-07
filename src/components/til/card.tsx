@@ -27,7 +27,7 @@ export default function Card(props: Props) {
         <div className="flex items-center">
           <span className="mr-auto inline-flex items-center text-sm font-medium text-primary/70 group-hover:text-primary">
             Read more
-            <Icons.arrow.right
+            <Icons.move.right
               className="ml-2 -translate-x-1 opacity-0 transition-all delay-150 group-hover:translate-x-0 group-hover:text-link group-hover:opacity-100"
               width={16}
             />

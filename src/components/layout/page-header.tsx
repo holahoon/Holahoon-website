@@ -11,7 +11,7 @@ export default function PageHeader(props: PageHeaderProps) {
 
   return (
     <div className={cn("mb-12 border-b border-border pb-8", className)}>
-      <h1 className="mb-6 text-3xl font-bold">{header}</h1>
+      <h1 className="mb-6 text-4xl font-bold">{header}</h1>
       {children}
     </div>
   )

@@ -7,7 +7,6 @@ import TilList from "@/components/til/til-list"
 const DIR = "src/articles/til"
 
 export default async function Til() {
-  // const categories = await getTilDirectories(DIR)
   const [directories, tilCounts] = await Promise.all([
     getTilDirectories(DIR),
     getTilCountsByCategories(),

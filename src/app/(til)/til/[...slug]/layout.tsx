@@ -10,7 +10,7 @@ export default function TilSlugLayout(props: TilSlugLayoutProps) {
   const { children } = props
 
   return (
-    <div className="mt-12">
+    <div className="mb-6 mt-12">
       <PrevLink />
       {children}
     </div>

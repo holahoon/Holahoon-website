@@ -10,14 +10,17 @@ interface Props {
 const components: MDXComponents = {
   h1: ({ className, ...rest }) => (
     <h1
-      className={cn("scroll-m-20 text-4xl font-bold tracking-tight", className)}
+      className={cn(
+        "mb-12 mt-10 scroll-m-20 text-4xl font-bold tracking-tight",
+        className
+      )}
       {...rest}
     />
   ),
   h2: ({ className, ...rest }) => (
     <h2
       className={cn(
-        "mb-4 mt-10 scroll-m-20 border-b pb-3 text-3xl font-semibold tracking-tight first:mt-0",
+        "mb-6 mt-10 scroll-m-20 border-b pb-3 text-3xl font-semibold tracking-tight first:mt-0",
         className
       )}
       {...rest}
@@ -67,7 +70,7 @@ const components: MDXComponents = {
   ),
   p: ({ className, ...props }) => (
     <p
-      className={cn("leading-[1.4] [&:not(:first-child)]:mt-4", className)}
+      className={cn("leading-[1.6] [&:not(:first-child)]:mt-4", className)}
       {...props}
     />
   ),

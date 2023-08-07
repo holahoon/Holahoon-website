@@ -20,7 +20,7 @@ export default function CategoryHeader(props: CategoryHeaderProps) {
         className="group ml-auto inline-flex items-center text-sm font-medium text-primary/70 hover:text-primary"
       >
         more{" "}
-        <Icons.arrow.right
+        <Icons.move.right
           width={16}
           className="ml-2 -translate-x-1 opacity-0 transition-all delay-150 group-hover:translate-x-0 group-hover:text-link group-hover:opacity-100"
         />
