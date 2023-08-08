@@ -18,6 +18,7 @@ I began to search what was wrong and I stumbled upon the SSH and HTTP in Git. So
 Before diving in, let's first summarize what Git is. It's a [distributed version control system](https://en.wikipedia.org/wiki/Distributed_version_control) that allows users to keep track of any file changes and manage it.
 When working with a remote repository hosted on a Git hosting service like Github or Gitlab, a data transfer protocol is needed.
 These protocols include **SSH** and **HTTP**. It pretty much works as a gateway from our machine to the remote hosting services.
+Of course, there are other protocols Git uses, but I will only cover SSH and HTTP in this article.
 
 Let's understand each of these protocols 🤔
 
@@ -37,7 +38,7 @@ Interestingly, the [Git book](https://git-scm.com/book/en/v2/Git-on-the-Server-T
 **Secure Shell** (SSH) is a software package that enables secure system administration and file transfers over insecure networks.
 The SSH protocol uses encryption to secure both client and the server. Anything that is transfered between two ends are encrypted to be protected from attacks in the network.
 
-Earlier, I said that SSH requires the user to generate an SSH key. This is because in order for the server to decrypt whatever is encrypted, it needs to trust the client. This is done by the client saying "hey, here's the key that you generated. Now you can trust me."
+Earlier, I said that SSH requires the user to generate an SSH key. The server needs to decrypt whatever was sent from the client. In order to securely trust the client, the server needs the key that it generated to the client.
 
 There's a tutorial on how to generate and set up SSH key, but I won't go into it in this article.
 
@@ -48,13 +49,13 @@ For my case, there really isn't a reason to use SSH over HTTP since Git offers a
 
 ### Let's try to switch the protocol
 
-1. go into the desired repository
+#### 1. go into the desired repository
 
 ```bash title="bash"
 $ cd dk/Desktop/...
 ```
 
-2. check the current list of remote repository url
+#### 2. check the current list of remote repository url
 
 ```bash title="bash"
 $ git remote -v
@@ -62,7 +63,7 @@ $ git remote -v
 
 Since I was working on this blog website, the command spitted out as
 
-```bash title="bash"
+```bash title="bash output"
 origin git@github.com:holahoon/okdk.git (fetch)
 origin git@github.com:holahoon/okdk.git (push)
 ```
@@ -70,7 +71,7 @@ origin git@github.com:holahoon/okdk.git (push)
 Notice how the format is in `git@github.com:...` not `https://github.com/...`. This tells that I'm currently using the SSH protocol.
 Obviously, I need to change the format to `https://github.com/...` to use the HTTP protocol.
 
-3. change remote url to use the HTTP protocol
+#### 3. change remote url to use the HTTP protocol
 
 Run the following command to changes
 
@@ -78,11 +79,19 @@ Run the following command to changes
 $ git remote set-url origin https://github.com/holahoon/okdk.git
 ```
 
-If we check again, it will show as
+Let's check the version and see if it changed the protocol.
 
-```bash title="bash"
+```bash title="bash output"
 origin https://github.com/holahoon/okdk.git (fetch)
 origin https://github.com/holahoon/okdk.git (push)
 ```
 
-I have now changed our protocol to use HTTP!
+Indeed it did change the protocol to use HTTP 🎉
+
+Now that I can commit and push my changes to the repository, it will ask for my username and password.
+Note that the support for password authentication was removed on August 13, 2021. Can no longer use my own password, but I need to use the generated personal access tokens.
+
+article references:
+
+- [https://blog.devgenius.io/git-remote-switching-from-ssh-to-http-88616fb43710](https://blog.devgenius.io/git-remote-switching-from-ssh-to-http-88616fb43710)
+- [https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols](https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols)
