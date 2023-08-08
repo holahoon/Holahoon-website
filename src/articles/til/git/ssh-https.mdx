@@ -43,4 +43,46 @@ There's a tutorial on how to generate and set up SSH key, but I won't go into it
 
 ## Switching from SSH to HTTP
 
-I figured, there really isn't a reason to use SSH over HTTP since Git offers a Smart HTTP protocol that is pretty secure and easy to set up.
+Choosing between the SSH or HTTP protocol really comes down to one's personal preference or security requirements.
+For my case, there really isn't a reason to use SSH over HTTP since Git offers a Smart HTTP protocol that is pretty secure and easy to set up.
+
+### Let's try to switch the protocol
+
+1. go into the desired repository
+
+```bash title="bash"
+$ cd dk/Desktop/...
+```
+
+2. check the current list of remote repository url
+
+```bash title="bash"
+$ git remote -v
+```
+
+Since I was working on this blog website, the command spitted out as
+
+```bash title="bash"
+origin git@github.com:holahoon/okdk.git (fetch)
+origin git@github.com:holahoon/okdk.git (push)
+```
+
+Notice how the format is in `git@github.com:...` not `https://github.com/...`. This tells that I'm currently using the SSH protocol.
+Obviously, I need to change the format to `https://github.com/...` to use the HTTP protocol.
+
+3. change remote url to use the HTTP protocol
+
+Run the following command to changes
+
+```bash title="bash"
+$ git remote set-url origin https://github.com/holahoon/okdk.git
+```
+
+If we check again, it will show as
+
+```bash title="bash"
+origin https://github.com/holahoon/okdk.git (fetch)
+origin https://github.com/holahoon/okdk.git (push)
+```
+
+I have now changed our protocol to use HTTP!
