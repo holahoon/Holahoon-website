@@ -1,0 +1,46 @@
+---
+title: Switching from SSH to HTTP in Git
+description: Understand the differences between SSH and HTTP in Git ecosystem and switch from SSH to HTTP.
+date: 2023-08-08
+---
+
+# Switching from SSH to HTTP
+
+**Before diving in, this article assumes a basic understanding of Git.**
+
+When I was configuring my bash terminal, it asked if I wanted to use SSH protocol to connect to Github repositories. Never used SSH protocol before, but wanted to try it without even knowing what SSH protocol is.
+
+I was ready to push my code toe Github repository and it threw an error: _ssh: connect to host github.com port 22: Operation timed out_.
+I began to search what was wrong and I stumbled upon the SSH and HTTP in Git. So I figured it doesn't hurt to understand how these protocols work.
+
+## Quick introduction to Git
+
+Before diving in, let's first summarize what Git is. It's a [distributed version control system](https://en.wikipedia.org/wiki/Distributed_version_control) that allows users to keep track of any file changes and manage it.
+When working with a remote repository hosted on a Git hosting service like Github or Gitlab, a data transfer protocol is needed.
+These protocols include **SSH** and **HTTP**. It pretty much works as a gateway from our machine to the remote hosting services.
+
+Let's understand each of these protocols 🤔
+
+## HTTP protocol in Git ecosystem
+
+**Hyper Text Transfer Protocol** (HTTP) is the most common protocol used. In Git, you can authenticate with the remote repository using Github username and password.
+
+After Git version 1.6.6, Git introduced a new, smarter protocol referred as "the **Smart** HTTP protocol". So there are two different HTTP protocols in Git: the Smart HTTP and the Dumb HTTP.
+Eh, I won't talk too much about it, but here's the [reference](https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols) if interested.
+
+Basically, the beauty of using HTTP protocol is having a single URL for all types of access. Also, the server can just authenticate the user with a username and password rather than forcing the user to generate an SSH key.
+
+Interestingly, the [Git book](https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols) describes that the Smart HTTP protocol operates similarly to the SSH, meaning it is secure.
+
+## SSH protocol in Git ecosystem
+
+**Secure Shell** (SSH) is a software package that enables secure system administration and file transfers over insecure networks.
+The SSH protocol uses encryption to secure both client and the server. Anything that is transfered between two ends are encrypted to be protected from attacks in the network.
+
+Earlier, I said that SSH requires the user to generate an SSH key. This is because in order for the server to decrypt whatever is encrypted, it needs to trust the client. This is done by the client saying "hey, here's the key that you generated. Now you can trust me."
+
+There's a tutorial on how to generate and set up SSH key, but I won't go into it in this article.
+
+## Switching from SSH to HTTP
+
+I figured, there really isn't a reason to use SSH over HTTP since Git offers a Smart HTTP protocol that is pretty secure and easy to set up.

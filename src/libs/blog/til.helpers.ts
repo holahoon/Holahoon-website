@@ -43,7 +43,7 @@ export const getTilDirectories = async (dir: string): Promise<Directories> => {
   return directories.reduce(
     (dirs, dir) => ({
       ...dirs,
-      [dir]: directoryMapper[dir],
+      [dir]: directoryMapper[dir] ?? dir,
     }),
     {} as Directories
   )
