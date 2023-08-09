@@ -4,12 +4,10 @@ description: Stop using useEffect accessing DOM nodes. Use callback refs!
 date: 2023-07-25
 ---
 
-# Use callback refs instead of useEffect
-
-## Purpose of this post
-
-I wanted to make a navigation with an underline and animate it whenever the user is on a specific page. But, I didn't just want to make a boring underline and slide it from left of the navigation item to the right.
+I was trying to make a navigation with an underline and animate it whenever the user is on a specific page. But, I didn't just want to make a boring underline and slide it from left of the navigation item to the right.
 I wanted an animation where the underline starts from the very left of the whole navigation items and make it slide dynamically to wherever the navigation item is located.
+
+There are a lot of tutorials on implementing this animation using Vanilla JS, but not many on React. Configured why not give it a shot and try to implement it on my own. But, I first need to have a better understanding of using `useRef` hook.
 
 ## Interacting with refs
 
@@ -158,6 +156,6 @@ return (
 The `measureRef` function will only be created whenever the `pathname` variable changes, and it will always have the value of the DOM node that it is referenced to. 🤗
 The function is really simple. It just takes the element and stores both the width and left position of that element.
 
-And that's it!
+That's it! Take a look at the navigation and try to navigate to a different page 😎
 
 Thanks to TkDodo's [avoiding useEffect with callback refs](https://tkdodo.eu/blog/avoiding-use-effect-with-callback-refs) blog where I larned a ton from!
