@@ -13,6 +13,7 @@ import {
   Laugh,
   Linkedin,
   Mail,
+  MessageCircle,
   Moon,
   MoveDown,
   MoveLeft,
@@ -54,6 +55,7 @@ export const Icons = {
   },
   at: AtSign,
   construction: Construction,
+  messageCircle: MessageCircle,
 }
 
 export type IconsType = typeof Icons

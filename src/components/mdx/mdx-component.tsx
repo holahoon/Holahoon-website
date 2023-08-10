@@ -1,6 +1,7 @@
 import { useMDXComponent } from "next-contentlayer/hooks"
 
 import { cn } from "@/libs/utils"
+import Callout from "@/components/til/callout"
 import type { MDXComponents } from "mdx/types"
 
 interface Props {
@@ -141,6 +142,7 @@ const components: MDXComponents = {
       {...rest}
     />
   ),
+  Callout,
 }
 
 export default function Mdx(props: Props) {
