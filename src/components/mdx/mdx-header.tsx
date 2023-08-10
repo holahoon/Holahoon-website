@@ -15,13 +15,13 @@ export default function MdxHeader(props: MdxHeaderProps) {
 
   return (
     <div className={cn("my-10", className)}>
-      <div className="space-y-4">
-        <h1 className="mb- text-3xl font-bold tracking-tight md:text-4xl">
+      <div>
+        <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
           {header}
         </h1>
-        <p className="text-lg text-primary/80">{description}</p>
+        <p className="mt-6 text-lg text-primary/80">{description}</p>
 
-        <div className="space-x-6">
+        <div className="mt-8 space-x-6">
           {date ? (
             <time className="inline-flex items-center text-sm text-primary/70">
               <Icons.calendar size={12} className="mr-1" />
@@ -37,7 +37,7 @@ export default function MdxHeader(props: MdxHeaderProps) {
           ) : null}
         </div>
       </div>
-      <hr className="mt-6" />
+      <hr className="mt-4" />
     </div>
   )
 }

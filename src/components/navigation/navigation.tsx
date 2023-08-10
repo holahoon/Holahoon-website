@@ -20,7 +20,7 @@ function navigation(_: unknown, ref: ForwardedRef<HTMLElement>) {
           <nav className="ml-auto flex items-center">
             <DesktopNavItem />
 
-            <div className="ml-6 flex">
+            <div className="ml-10 flex">
               <ThemeToggle />
             </div>
           </nav>

@@ -5,11 +5,11 @@ interface LayoutProps {
 }
 
 export const metadata = {
-  title: "DK, life",
+  title: "DK, projects",
   description: "David Kim, a web developer",
 }
 
-export default function LifeLayout(props: LayoutProps) {
+export default function ProjectsLayout(props: LayoutProps) {
   const { children } = props
 
   return <div className="flex h-full flex-1 flex-col">{children}</div>
