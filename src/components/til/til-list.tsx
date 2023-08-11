@@ -3,7 +3,7 @@
 import { useSearchParams } from "next/navigation"
 import { type Til } from "contentlayer/generated"
 
-import type { Directories } from "@/libs/blog"
+import type { Directories } from "@/libs/til"
 import CategoryHeader from "@/components/til/category-header"
 import List from "./list"
 

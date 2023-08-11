@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation"
 
-import { getTilsFromParams } from "@/libs/blog"
+import { getTilsFromParams } from "@/libs/til"
 import Mdx from "@/components/mdx/mdx-component"
 import MdxHeader from "@/components/mdx/mdx-header"
 

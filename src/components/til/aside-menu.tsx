@@ -4,7 +4,7 @@ import Link from "next/link"
 import { useSearchParams } from "next/navigation"
 
 import { useMounted } from "@/hooks/common"
-import type { Directories, TilCounts } from "@/libs/blog"
+import type { Directories, TilCounts } from "@/libs/til"
 import { cn } from "@/libs/utils/utils.helpers"
 import NavSkeleton from "./nav-skeleton"
 

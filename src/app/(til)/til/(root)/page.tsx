@@ -1,6 +1,6 @@
 import { allTils, type Til } from "contentlayer/generated"
 
-import { getTilCountsByCategories, getTilDirectories } from "@/libs/blog"
+import { getTilCountsByCategories, getTilDirectories } from "@/libs/til"
 import AsideMenu from "@/components/til/aside-menu"
 import TilList from "@/components/til/til-list"
 
