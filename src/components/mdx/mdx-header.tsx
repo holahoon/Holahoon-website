@@ -14,7 +14,7 @@ export default function MdxHeader(props: MdxHeaderProps) {
   const { header, description, date, readTime, className } = props
 
   return (
-    <div className={cn("my-10", className)}>
+    <div className={cn("", className)}>
       <div>
         <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
           {header}
