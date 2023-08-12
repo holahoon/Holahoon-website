@@ -5,6 +5,8 @@ import rehypePrettyCode from "rehype-pretty-code"
 import rehypeSlug from "rehype-slug"
 import remarkGfm from "remark-gfm"
 
+import rehypeToc from "@jsdevtools/rehype-toc"
+
 const calculateReadingTime = (rawText) => {
   const wpm = 215
   const countedWords = rawText.split(/(\s+)/)
@@ -17,6 +19,17 @@ const rehypePrettyCodeOptions = {
   theme: "one-dark-pro",
   onVisitLine(node) {
     if (!node.children.length) node.children = [{ type: "text", value: " " }]
+  },
+}
+
+/** @type {import('@jsdevtools/rehype-toc').Options} */
+const rehypeTocOptions = {
+  headings: ["h1", "h2", "h3"],
+  cssClasses: {
+    toc: "dk-toc",
+    list: "dk-toc-list list-none ml-4 my-0",
+    listItem: "dk-toc-item",
+    link: "dk-toc-link",
   },
 }
 
@@ -99,6 +112,7 @@ export default makeSource({
       // rehypeAccessibleEmojis,
       // rehypeAutolinkHeadings,
       // rehypeCodeTitles,
+      [rehypeToc, rehypeTocOptions],
       [rehypePrettyCode, rehypePrettyCodeOptions],
     ],
   },

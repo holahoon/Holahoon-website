@@ -18,18 +18,14 @@ export default async function BlogPage(props: PageProps) {
   if (!post) notFound()
 
   return (
-    <div className="mt-10 flex">
-      <article>
-        <MdxHeader
-          header={post.title}
-          description={post.description}
-          date={post.date}
-          readTime={post.readTime}
-        />
-        <Mdx code={post.body.code} />
-      </article>
-
-      <aside className="">toc</aside>
-    </div>
+    <>
+      <MdxHeader
+        header={post.title}
+        description={post.description}
+        date={post.date}
+        readTime={post.readTime}
+      />
+      <Mdx code={post.body.code} />
+    </>
   )
 }

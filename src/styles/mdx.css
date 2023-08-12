@@ -3,7 +3,6 @@
 [data-rehype-pretty-code-fragment]{
   @apply rounded-sm mt-6 mb-4;
 }
-
 [data-rehype-pretty-code-fragment] code {
   @apply grid min-w-full break-words rounded-none border-0 bg-transparent p-0 text-sm text-black;
   counter-reset: line;
@@ -32,8 +31,21 @@
 }
 
 [data-rehype-pretty-code-title] {
-  @apply py-2 px-3 inline-block bg-muted rounded-md font-medium text-sm;
+  @apply ml-2 py-2 px-3 inline-block bg-muted rounded-t-md font-medium text-sm;
 }
 [data-rehype-pretty-code-title] + pre {
   @apply mt-0;
+}
+
+/* rehype-toc styles */
+.dk-toc {
+  @apply pb-6 mb-10 border-b;
+}
+
+.dk-toc-list {
+  @apply list-none ml-4 my-0;
+}
+
+.dk-toc-link {
+  @apply no-underline font-normal text-primary/80 hover:text-primary;
 }
