@@ -1,5 +1,4 @@
 /** Contentlayer specific configuration */
-
 import { defineDocumentType, makeSource } from "contentlayer/source-files"
 import rehypePrettyCode from "rehype-pretty-code"
 import rehypeSlug from "rehype-slug"
@@ -30,26 +29,6 @@ const rehypeTocOptions = {
     list: "dk-toc-list list-none ml-4 my-0",
     listItem: "dk-toc-item",
     link: "dk-toc-link",
-  },
-}
-
-/** @type {import('contentlayer/source-files').ComputedFields} */
-const computedFields = {
-  slug: {
-    type: "string",
-    resolve: (doc) => doc._raw.flattenedPath,
-  },
-  directory: {
-    type: "string",
-    resolve: (doc) => doc._raw.sourceFileDir,
-  },
-  slugAsParams: {
-    type: "string",
-    resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
-  },
-  readTime: {
-    type: "number",
-    resolve: (doc) => calculateReadingTime(doc.body.raw),
   },
 }
 
@@ -90,21 +69,9 @@ export const Til = defineDocumentType(() => ({
   },
 }))
 
-export const Life = defineDocumentType(() => ({
-  name: "Life",
-  filePathPattern: "life/**/*.mdx",
-  contentType: "mdx",
-  fields: {
-    title: { type: "string", required: true },
-    description: { type: "string", required: true },
-    date: { type: "string", required: true },
-  },
-  computedFields,
-}))
-
 export default makeSource({
   contentDirPath: "src/articles",
-  documentTypes: [Til, Life],
+  documentTypes: [Til],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [

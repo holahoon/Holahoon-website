@@ -145,7 +145,7 @@ const components: MDXComponents = {
   Callout,
 }
 
-export default function Mdx(props: Props) {
+export default function MdxBody(props: Props) {
   const { code } = props
 
   const MDXContent = useMDXComponent(code)

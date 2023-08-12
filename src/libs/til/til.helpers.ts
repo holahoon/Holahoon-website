@@ -2,7 +2,7 @@ import { readdir } from "fs/promises"
 import { allTils, type Til } from "contentlayer/generated"
 
 import { directoryMapper } from "./til.constants"
-import { Directories, TilCounts } from "./til.types"
+import type { Directories, TilCounts, TilPager } from "./til.types"
 
 /** TIL */
 
@@ -10,7 +10,7 @@ export const getRecentTils = async (qty: number): Promise<Til[]> => {
   return allTils.slice(0, qty)
 }
 
-export const getTilsFromParams = async (params: {
+export const getTilFromParams = async (params: {
   slug: string[]
 }): Promise<Til | null> => {
   const slug = params.slug?.join("/")
@@ -20,7 +20,10 @@ export const getTilsFromParams = async (params: {
   return til
 }
 
-export const getTilsByCategory = async (category: string): Promise<Til[]> => {
+export const getTilsByCategory = async (
+  category: string | undefined
+): Promise<Til[]> => {
+  if (!category) return []
   return allTils.filter((til) => til.category === category)
 }
 
@@ -47,4 +50,20 @@ export const getTilDirectories = async (dir: string): Promise<Directories> => {
     }),
     {} as Directories
   )
+}
+
+export const getTilPager = (posts: Til[], slugs: string[]): TilPager => {
+  const firstIdx = 0
+  const lastIdx = posts.length - 1
+  const foundPostIdx = posts.findIndex((post) =>
+    slugs.includes(post.slugAsParams)
+  )
+
+  const prevPost = foundPostIdx === firstIdx ? null : posts[foundPostIdx - 1]
+  const nextPost = foundPostIdx === lastIdx ? null : posts[foundPostIdx + 1]
+
+  return {
+    prevPost,
+    nextPost,
+  }
 }

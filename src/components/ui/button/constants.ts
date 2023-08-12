@@ -8,13 +8,13 @@ export const buttonVariants = cva(
         default: "bg-background text-foreground hover:bg-accent/90",
         secondary: "bg-secondary",
         outline: "border",
-        // ghost: "hover",
+        ghost: "hover:bg-accent",
         link: "text-link underline-offset-4 hover:underline",
       },
       size: {
-        default: "h-10 py-2 px-4",
-        sm: "h-9 px-3 rounded-md",
-        lg: "h-11 px-8 rounded-md",
+        default: "py-2 px-4",
+        sm: "px-3",
+        lg: "px-8",
       },
     },
     defaultVariants: {

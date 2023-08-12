@@ -7,5 +7,5 @@ interface TilSlugLayoutProps {
 export default function TilSlugLayout(props: TilSlugLayoutProps) {
   const { children } = props
 
-  return <article className="mb-6 mt-12">{children}</article>
+  return <article className="mb-2 mt-12">{children}</article>
 }

@@ -39,7 +39,7 @@
 
 /* rehype-toc styles */
 .dk-toc {
-  @apply pb-6 mb-10 border-b;
+  @apply pb-6 mb-8 border-b;
 }
 
 .dk-toc-list {
@@ -47,5 +47,5 @@
 }
 
 .dk-toc-link {
-  @apply no-underline font-normal text-primary/80 hover:text-primary;
+  @apply no-underline font-normal text-sm text-primary/80 hover:text-primary;
 }

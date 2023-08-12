@@ -1,8 +1,9 @@
 import {
-  ArrowLeft,
   AtSign,
   Binary,
   Calendar,
+  ChevronLeft,
+  ChevronRight,
   Clock3,
   Code2,
   Construction,
@@ -42,8 +43,9 @@ export const Icons = {
     right: MoveRight,
     left: MoveLeft,
   },
-  arrow: {
-    left: ArrowLeft,
+  chevron: {
+    right: ChevronRight,
+    left: ChevronLeft,
   },
   laugh: Laugh,
   eye: Eye,
