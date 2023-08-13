@@ -1,28 +1,26 @@
-import { Icons } from "@/components/icons"
+import Avatar from "@/components/home/avatar"
 
-// TODO: let's put like a current employment status
 export default async function Home() {
   return (
-    <>
+    <div className="flex justify-between">
       <div>
-        <h1 className="text-4xl font-semibold">Hi, I&apos;m David</h1>
-        <h2 className="mt-4 text-2xl font-semibold text-primary/90">
-          A Web Developer
+        <h1 className="text-5xl font-bold">
+          Hi 👋 I&apos;m David Kim
+          <span className="ml-2 text-base font-bold text-primary/80">DK</span>
+        </h1>
+
+        <h2 className="mt-2 text-3xl font-semibold text-primary/80">
+          A Frontend Web Developer
         </h2>
-        <p className="mt-1 text-primary/80">
-          with a passion for building cool things on the web
-        </p>
-        <p>I&apos;m currently looking for my next adventure!</p>
+
+        <div className="mt-8 border-l-2 pl-4 text-primary/80">
+          <p>Currently based in Seoul, Korea.</p>
+          <p>Love building cool things on the web.</p>
+          <p>Open for new opportunities.</p>
+        </div>
       </div>
 
-      <div className="mt-20 flex flex-1 flex-col items-center justify-center">
-        <Icons.construction width={100} height={100} />
-        <p className="mt-8 text-center text-primary/80">
-          In the delightful process of
-          <br />
-          deciding what exciting content to feature here 🤔
-        </p>
-      </div>
-    </>
+      <Avatar />
+    </div>
   )
 }

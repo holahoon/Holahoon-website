@@ -9,12 +9,12 @@ function navigation(_: unknown, ref: ForwardedRef<HTMLElement>) {
   return (
     <header
       ref={ref}
-      className="sticky top-0 isolate z-[999] w-full bg-background shadow-nav"
+      className="sticky top-0 isolate z-[999] w-full border-b bg-background"
     >
       <LayoutWrapper>
         <div className="flex items-center py-3">
           <Link href="/" className="text-xl font-bold text-foreground">
-            ok.dk
+            OK.DK
           </Link>
 
           <nav className="ml-auto flex items-center">

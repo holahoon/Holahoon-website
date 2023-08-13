@@ -39,7 +39,9 @@ export default function RootLayout(props: RootLayoutProps) {
             <Navigation />
 
             <main className="flex-1">
-              <LayoutWrapper className="h-full">{children}</LayoutWrapper>
+              <div className="mt-12 md:mt-16">
+                <LayoutWrapper className="h-full">{children}</LayoutWrapper>
+              </div>
             </main>
 
             <Footer />
