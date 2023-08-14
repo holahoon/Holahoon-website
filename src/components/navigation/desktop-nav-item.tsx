@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation"
 import { useCallback, useState } from "react"
 
 import { cn } from "@/libs/utils/utils.helpers"
-import { navList } from "@/config/nav-list"
+import { navList } from "@/config/nav-list.config"
 
 export default function DesktopNavItem() {
   const pathname = usePathname()

@@ -14,7 +14,7 @@ function navigation(_: unknown, ref: ForwardedRef<HTMLElement>) {
       <LayoutWrapper>
         <div className="flex items-center py-3">
           <Link href="/" className="text-xl font-bold text-foreground">
-            OK.DK
+            hooniverse
           </Link>
 
           <nav className="ml-auto flex items-center">
