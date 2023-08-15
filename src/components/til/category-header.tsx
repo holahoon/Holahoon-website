@@ -12,14 +12,17 @@ export default function CategoryHeader(props: CategoryHeaderProps) {
   return (
     <h2
       id={id}
-      className={cn("mb-4 flex items-center text-2xl font-semibold", className)}
+      className={cn(
+        "mb-4 flex items-center text-xl font-semibold md:text-2xl",
+        className
+      )}
     >
       {children}
       <Link
         href={{ pathname: "/til", query: { category: id } }}
         className="group ml-auto inline-flex items-center text-sm font-medium text-primary/70 hover:text-primary"
       >
-        more{" "}
+        more posts
         <Icons.move.right
           width={16}
           className="ml-2 -translate-x-1 opacity-0 transition-all delay-150 group-hover:translate-x-0 group-hover:text-link group-hover:opacity-100"

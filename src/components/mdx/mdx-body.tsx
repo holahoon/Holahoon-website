@@ -21,7 +21,7 @@ const components: MDXComponents = {
   h2: ({ className, ...rest }) => (
     <h2
       className={cn(
-        "mb-6 mt-10 scroll-m-20 text-3xl font-semibold tracking-tight first:mt-0",
+        "mb-6 mt-10 scroll-m-20 text-2xl font-semibold tracking-tight first:mt-0 md:text-3xl",
         className
       )}
       {...rest}
@@ -30,7 +30,7 @@ const components: MDXComponents = {
   h3: ({ className, ...props }) => (
     <h3
       className={cn(
-        "mt-8 scroll-m-20 text-2xl font-semibold tracking-tight",
+        "mt-8 scroll-m-20 text-xl font-semibold tracking-tight md:text-2xl",
         className
       )}
       {...props}

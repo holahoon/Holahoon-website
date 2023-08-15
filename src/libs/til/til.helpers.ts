@@ -1,13 +1,15 @@
 import { readdir } from "fs/promises"
 import { allTils, type Til } from "contentlayer/generated"
+import { compareDesc } from "date-fns"
 
 import { directoryMapper } from "./til.constants"
 import type { Directories, TilCounts, TilPager } from "./til.types"
 
-/** TIL */
-
 export const getRecentTils = async (qty: number): Promise<Til[]> => {
-  return allTils.slice(0, qty)
+  const descOrder = allTils.sort((a, b) =>
+    compareDesc(new Date(a.date), new Date(b.date))
+  )
+  return descOrder.slice(0, qty)
 }
 
 export const getTilFromParams = async (params: {
