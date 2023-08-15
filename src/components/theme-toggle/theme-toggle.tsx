@@ -34,7 +34,7 @@ export default function ThemeToggle() {
   if (!isMounted) return <ThemeSkeleton />
 
   return (
-    <Button className="w-10 rounded-full p-0" onClick={toggleThemes}>
+    <Button className="rounded-full p-0" size="icon" onClick={toggleThemes}>
       <Icons.sun className={createClassName(theme === "light")} />
       <Icons.moon className={createClassName(theme === "dark")} />
       <Icons.laptop className={createClassName(theme === "system")} />

@@ -27,104 +27,104 @@ const components: MDXComponents = {
       {...rest}
     />
   ),
-  h3: ({ className, ...props }) => (
+  h3: ({ className, ...rest }) => (
     <h3
       className={cn(
         "mt-8 scroll-m-20 text-xl font-semibold tracking-tight md:text-2xl",
         className
       )}
-      {...props}
+      {...rest}
     />
   ),
-  h4: ({ className, ...props }) => (
+  h4: ({ className, ...rest }) => (
     <h4
       className={cn(
-        "mt-8 scroll-m-20 text-xl font-semibold tracking-tight",
+        "mt-8 scroll-m-20 text-lg font-semibold tracking-tight md:text-xl",
         className
       )}
-      {...props}
+      {...rest}
     />
   ),
-  h5: ({ className, ...props }) => (
+  h5: ({ className, ...rest }) => (
     <h5
       className={cn(
-        "mt-8 scroll-m-20 text-lg font-semibold tracking-tight",
+        "mt-8 scroll-m-20 text-base font-semibold tracking-tight md:text-lg",
         className
       )}
-      {...props}
+      {...rest}
     />
   ),
-  h6: ({ className, ...props }) => (
+  h6: ({ className, ...rest }) => (
     <h6
       className={cn(
         "mt-8 scroll-m-20 text-base font-semibold tracking-tight",
         className
       )}
-      {...props}
+      {...rest}
     />
   ),
-  a: ({ className, ...props }) => (
+  a: ({ className, ...rest }) => (
     <a
       className={cn("font-medium underline underline-offset-4", className)}
-      {...props}
+      {...rest}
     />
   ),
-  p: ({ className, ...props }) => (
+  p: ({ className, ...rest }) => (
     <p
       className={cn("leading-[1.6] [&:not(:first-child)]:mt-4", className)}
-      {...props}
+      {...rest}
     />
   ),
-  ul: ({ className, ...props }) => (
-    <ul className={cn("my-6 ml-6 list-disc", className)} {...props} />
+  ul: ({ className, ...rest }) => (
+    <ul className={cn("my-6 ml-6 list-disc", className)} {...rest} />
   ),
-  ol: ({ className, ...props }) => (
-    <ol className={cn("my-6 ml-6 list-decimal", className)} {...props} />
+  ol: ({ className, ...rest }) => (
+    <ol className={cn("my-6 ml-6 list-decimal", className)} {...rest} />
   ),
-  li: ({ className, ...props }) => (
-    <li className={cn("mt-2", className)} {...props} />
+  li: ({ className, ...rest }) => (
+    <li className={cn("mt-2", className)} {...rest} />
   ),
-  blockquote: ({ className, ...props }) => (
+  blockquote: ({ className, ...rest }) => (
     <blockquote
       className={cn(
         "mt-6 border-l-2 pl-6 italic [&>*]:text-muted-foreground",
         className
       )}
-      {...props}
+      {...rest}
     />
   ),
-  img: ({ className, alt, ...props }) => (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img className={cn("rounded-md border", className)} alt={alt} {...props} />
+  strong: ({ className, ...rest }) => (
+    <strong className={cn("font-bold", className)} {...rest} />
   ),
-  hr: ({ ...props }) => <hr className="my-4 md:my-8" {...props} />,
-  table: ({ className, ...props }) => (
+  img: ({ className, alt, ...rest }) => (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img className={cn("rounded-md border", className)} alt={alt} {...rest} />
+  ),
+  hr: ({ ...rest }) => <hr className="my-4 md:my-8" {...rest} />,
+  table: ({ className, ...rest }) => (
     <div className="my-6 w-full overflow-y-auto">
-      <table className={cn("w-full", className)} {...props} />
+      <table className={cn("w-full", className)} {...rest} />
     </div>
   ),
-  tr: ({ className, ...props }) => (
-    <tr
-      className={cn("m-0 border-t p-0 even:bg-muted", className)}
-      {...props}
-    />
+  tr: ({ className, ...rest }) => (
+    <tr className={cn("m-0 border-t p-0 even:bg-muted", className)} {...rest} />
   ),
-  th: ({ className, ...props }) => (
+  th: ({ className, ...rest }) => (
     <th
       className={cn(
         "border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right",
         className
       )}
-      {...props}
+      {...rest}
     />
   ),
-  td: ({ className, ...props }) => (
+  td: ({ className, ...rest }) => (
     <td
       className={cn(
         "border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right",
         className
       )}
-      {...props}
+      {...rest}
     />
   ),
   pre: ({ className, ...rest }) => (

@@ -16,7 +16,9 @@ export default function MdxHeader(props: MdxHeaderProps) {
   return (
     <>
       <header>
-        <h1 className="text-4xl font-bold tracking-tight">{header}</h1>
+        <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
+          {header}
+        </h1>
 
         <p className="mt-6 text-lg text-primary/80">{description}</p>
 

@@ -9,10 +9,10 @@ function navigation(_: unknown, ref: ForwardedRef<HTMLElement>) {
   return (
     <header
       ref={ref}
-      className="sticky top-0 isolate z-[999] w-full border-b bg-background"
+      className="sticky top-0 isolate z-[999] w-full border-b-2 border-accent bg-background"
     >
       <LayoutWrapper>
-        <div className="flex items-center py-3">
+        <div className="flex items-center">
           <Link href="/" className="text-xl font-bold text-foreground">
             hooniverse
           </Link>
@@ -20,7 +20,7 @@ function navigation(_: unknown, ref: ForwardedRef<HTMLElement>) {
           <nav className="ml-auto flex items-center">
             <DesktopNavItem />
 
-            <div className="ml-10 flex">
+            <div className="ml-2 flex md:ml-10">
               <ThemeToggle />
             </div>
           </nav>

@@ -40,7 +40,7 @@ export default function DesktopNavItem() {
             href={link}
             id={link}
             className={cn(
-              "mr-6 inline-block px-4 py-2 text-primary last-of-type:mr-0"
+              "mr-6 inline-block px-3 py-3 text-primary last-of-type:mr-0 md:px-4 md:py-5"
             )}
           >
             {label}
@@ -54,7 +54,7 @@ export default function DesktopNavItem() {
           width: `${dimension?.width ?? 0}px`,
         }}
         className={cn(
-          "absolute -bottom-[calc(0.75rem+1px)] left-0 h-[2px] w-[100px] rounded-md bg-primary/70 transition-all duration-200"
+          "absolute -bottom-[calc(0px+1.5px)] left-0 h-[2px] w-[100px] rounded-md bg-primary/70 transition-all duration-200"
         )}
       />
     </ul>
