@@ -1,0 +1,105 @@
+---
+title: Metadata in Next.js
+description: Working with metadata api in Next.js to improve SEO.
+date: 2023-08-17
+---
+
+It was time to implement metadata to my web page. I was going through the [Next.js metadata documentation](https://nextjs.org/docs/app/building-your-application/optimizing/metadata) and decided to write about what and how I have implemented meta tags to my web page.
+
+## Metadata
+
+Metadata (or metainformation) means _data about data_. It can be defined as _the information that describes and explains data_. It may contain contents of a page or the technical details of an image.
+Well, metadata is mainly designed to be machine-readable. Metadata is stored in meta tags such as `<title>` and `<description>`.
+
+### Understand why metadata is needed
+
+Say when we need to search for an image. Images itself cannot be magically searched in the web. It needs some sort of an information about that the image is about. That's where we typically use `<title>` and `<description>` tags to include information about the image.
+
+Sames goes for when publishing a web page. Search engines or Social media sites rely on the page's meta tags to be able to figure out what data the web page contains.
+
+### Metadata is important
+
+Since metadata provides method for communicating information about content, it helps by making its content easier to be found, used and preserved.
+It also plays a big role in search engine optimization(SEO).
+
+## Applying metadata in Next.js
+
+Enough of short introduction to metadata, it is time to actually implement meta tags in Next.js application.
+
+It looks like Next.js offers two different ways to add metadata: **config-based metadata** and **file-based metadata**.
+Config-based metadata simply allows developers to set up a config code as an object and export it from either `layout.js` or `page.js` file. Didn't work with file-based metadata, but it adds static or dynamically generated special files to route segments.
+Next.js automatically generate the relevant `<head>` element for all the pages.
+
+There's an [API reference](https://nextjs.org/docs/app/api-reference/functions/generate-metadata).
+
+### The `metadata` object
+
+Defining a static metadata, you need to export a metadata object from either `layout.js` or `page.js`. You can also import a Metadata type from Next.js package.
+
+```tsx title="layout.tsx"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "...",
+  description: "...",
+}
+```
+
+### `generateMetadata` Options
+
+There are times when metadata depends on dynamic information such as the current route. We won't be able to know the information to generate the meta tag.
+We can create a function to return `Metadata` object. [reference](https://nextjs.org/docs/app/api-reference/functions/generate-metadata#generatemetadata-function)
+
+## Metadata Fields
+
+I won't go over all the metadata fields that Next.js offers, but will talk about the fields I'm using.
+
+#### title
+
+Next.js offers two ways to define a title for the page: **string** and **template object**.
+I'm using template object in the main `layout.tsx`, but using string in other pages.
+
+```ts title="site.config.ts"
+{
+  ...
+  title: {
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
+  },
+  ...
+}
+```
+
+`title.default` is a fallback title if child route segments didn't define a `title`.
+`title.template` is used to apply prefix to titles defined in **child** route segments.
+
+#### description
+
+As the keyword describes, it's a description of the page. It outputs as such:
+
+```html title="html"
+<meta name="description" content="David Kim, a web developer" />
+```
+
+#### basic fields
+
+As the [documentation](https://nextjs.org/docs/app/api-reference/functions/generate-metadata#basic-fields) shows, there are more fields that can be applied.
+I used `keywords`, `authors` and `creator`.
+
+#### openGraph
+
+I'm currently using my main image as an `og:image`.
+
+Until now, I always wondered the purpose of an og tag. Opengraph is an internet protocol that was created by Facebook.
+Opengraph helps to create a preview of a web page when sharing on social networks.
+Here's a helpful link: [opg.me](https://ogp.me/)
+
+#### icons
+
+I need to create a logo image and favicon...
+
+#### manifest
+
+A web application manifest is a JSON text file that contains information about a web application. [Mozilla](https://developer.mozilla.org/en-US/docs/Web/Manifest)
+
+I need images to use in manifest.

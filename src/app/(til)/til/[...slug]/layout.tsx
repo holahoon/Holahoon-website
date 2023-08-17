@@ -4,6 +4,8 @@ interface TilSlugLayoutProps {
   children: ReactNode
 }
 
+// TODO: needs dynamic generateMeta function
+
 export default function TilSlugLayout(props: TilSlugLayoutProps) {
   const { children } = props
 

@@ -1,6 +1,7 @@
 import { useMDXComponent } from "next-contentlayer/hooks"
 
 import { cn } from "@/libs/utils"
+import { ExternalLink } from "@/components/ui/link"
 import Callout from "@/components/til/callout"
 import type { MDXComponents } from "mdx/types"
 
@@ -21,7 +22,7 @@ const components: MDXComponents = {
   h2: ({ className, ...rest }) => (
     <h2
       className={cn(
-        "mb-6 mt-10 scroll-m-20 text-2xl font-semibold tracking-tight first:mt-0 md:text-3xl",
+        "mb-6 mt-12 scroll-m-20 text-2xl font-semibold tracking-tight first:mt-0 md:text-3xl",
         className
       )}
       {...rest}
@@ -143,6 +144,7 @@ const components: MDXComponents = {
     />
   ),
   Callout,
+  ExternalLink,
 }
 
 export default function MdxBody(props: Props) {

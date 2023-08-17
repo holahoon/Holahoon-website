@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import { Work_Sans } from "next/font/google"
 import { type ReactNode } from "react"
 
@@ -6,6 +7,7 @@ import { cn } from "@/libs/utils/utils.helpers"
 import Footer from "@/components/footer"
 import LayoutWrapper from "@/components/layout/layout-wrapper"
 import Navigation from "@/components/navigation/navigation"
+import { siteConfig } from "@/config/site.config"
 
 import "../styles/globals.css"
 
@@ -15,10 +17,56 @@ interface RootLayoutProps {
 
 const font = Work_Sans({ subsets: ["latin"] })
 
-// TODO: needs work
-export const metadata = {
-  title: "DK",
-  description: "HI! I'm DK, a web developer.",
+export const metadata: Metadata = {
+  title: {
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  keywords: [
+    "Next.js",
+    "React",
+    "Tailwind CSS",
+    "Server components",
+    "DK",
+    "Hooniverse",
+    "Blog",
+  ],
+  authors: [{ name: "David Kim", url: siteConfig.url }],
+  creator: "David Kim",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteConfig.url,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1200,
+        height: 630,
+        alt: siteConfig.name,
+      },
+    ],
+  },
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
+  // twitter: {
+  //   card: "summary_large_image",
+  //   title: siteConfig.name,
+  //   description: siteConfig.description,
+  //   images: [siteConfig.ogImage],
+  //   creator: `@{siteConfig.author}`,
+  // },
+  icons: {
+    // TODO: change favicon
+    icon: "/favicon.ico",
+    // shortcut: "/favicon-16x16.png",
+    // apple: "/apple-touch-icon.png",
+  },
 }
 
 const themes = ["light", "dark"]

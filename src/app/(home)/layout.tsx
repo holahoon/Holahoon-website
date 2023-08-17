@@ -4,11 +4,6 @@ interface LayoutProps {
   children: ReactNode
 }
 
-export const metadata = {
-  title: "DK, web dev",
-  description: "David Kim, a web developer",
-}
-
 export default function HomeLayout(props: LayoutProps) {
   const { children } = props
 

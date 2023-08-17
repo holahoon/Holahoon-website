@@ -1,9 +1,15 @@
+import type { Metadata } from "next"
 import { type ReactNode } from "react"
 
 import PageHeader from "@/components/layout/page-header"
 
 interface TilLayoutProps {
   children: ReactNode
+}
+
+export const metadata: Metadata = {
+  title: "TIL",
+  description: "Hooniverse - Today I Learned",
 }
 
 export default async function TilLayout(props: TilLayoutProps) {

@@ -1,12 +1,13 @@
+import type { Metadata } from "next"
 import { type ReactNode } from "react"
 
 interface LayoutProps {
   children: ReactNode
 }
 
-export const metadata = {
-  title: "DK, projects",
-  description: "David Kim, a web developer",
+export const metadata: Metadata = {
+  title: "About",
+  description: "Hooniverse - About David Kim",
 }
 
 export default function ProjectsLayout(props: LayoutProps) {

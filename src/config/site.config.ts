@@ -1,9 +1,11 @@
 import { socialConfig } from "./social.config"
 
 export const siteConfig = {
-  name: "David Kim",
+  name: "Hooniverse",
   url: "localhost:3000",
-  description: "OkDk TIL blog",
+  description: "David Kim, a web developer",
+  author: "David Kim",
+  ogImage: "", // TODO: needs og image
   links: socialConfig,
 } as const
 

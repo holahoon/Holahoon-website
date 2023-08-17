@@ -8,14 +8,18 @@ interface Props extends LinkProps {
   className?: string
 }
 
-function HighlightLink(props: Props) {
+export default function ExternalLink(props: Props) {
   const { children, href, className, ...rest } = props
 
   return (
-    <Link href={href} className={cn("", className)} {...rest}>
+    <Link
+      href={href}
+      target="__blank"
+      rel="noreferrer"
+      className={cn("font-medium underline underline-offset-4", className)}
+      {...rest}
+    >
       {children}
     </Link>
   )
 }
-
-export default HighlightLink
