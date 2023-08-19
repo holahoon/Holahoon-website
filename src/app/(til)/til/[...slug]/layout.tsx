@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+import type { Metadata, ResolvingMetadata } from "next"
 import type { ReactNode } from "react"
 
 import { getTilFromParams } from "@/libs/til"
@@ -9,7 +9,8 @@ interface TilSlugLayoutProps {
 }
 
 export const generateMetadata = async (
-  props: TilSlugLayoutProps
+  props: TilSlugLayoutProps,
+  parent: ResolvingMetadata
 ): Promise<Metadata> => {
   const { params } = props
   const til = await getTilFromParams(params)
