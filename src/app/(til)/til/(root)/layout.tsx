@@ -19,10 +19,12 @@ export default async function TilLayout(props: TilLayoutProps) {
     <div className="mt-12">
       <PageHeader header="Today I Learned">
         <p className="text-primary/90">
-          I share nuggets of knowledge and valuable tidbits
+          Here, I write and document things I&apos;ve picked up in the realm of
+          software development.
         </p>
         <p className="text-primary/90">
-          with the world of software development.
+          I&apos;m a firm believer that{" "}
+          <i>consistency is the key to a great achievement.</i>
         </p>
       </PageHeader>
 
