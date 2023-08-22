@@ -1,6 +1,8 @@
 import type { Metadata } from "next"
 import { type ReactNode } from "react"
 
+import PageHeader from "@/components/layout/page-header"
+
 interface LayoutProps {
   children: ReactNode
 }
@@ -13,5 +15,17 @@ export const metadata: Metadata = {
 export default function ProjectsLayout(props: LayoutProps) {
   const { children } = props
 
-  return <div className="flex h-full flex-1 flex-col">{children}</div>
+  return (
+    <div className="flex h-full flex-1 flex-col">
+      <PageHeader header="About">
+        <p className="text-primary/90">
+          Hi there! It&apos;s a pleasure to meet you.
+        </p>
+        <p className="text-primary/90">
+          I&apos;m David Kim, but you can call me DK.
+        </p>
+      </PageHeader>
+      {children}
+    </div>
+  )
 }

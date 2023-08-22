@@ -7,7 +7,7 @@ import remarkGfm from "remark-gfm"
 import rehypeToc from "@jsdevtools/rehype-toc"
 
 const calculateReadingTime = (rawText) => {
-  const wpm = 215
+  const wpm = 210
   const countedWords = rawText.split(/(\s+)/)
   const minutes = countedWords.length / wpm
   return Math.ceil(minutes)
@@ -23,6 +23,9 @@ const rehypePrettyCodeOptions = {
 
 /** @type {import('@jsdevtools/rehype-toc').Options} */
 const rehypeTocOptions = {
+  customizeTOC: (toc) => {
+    return false
+  },
   headings: ["h1", "h2", "h3"],
   cssClasses: {
     toc: "dk-toc",
@@ -40,7 +43,7 @@ export const Til = defineDocumentType(() => ({
   fields: {
     title: { type: "string", required: true },
     description: { type: "string", required: true },
-    date: { type: "string", required: true },
+    date: { type: "date", required: true },
     // tags: { type: "list", of: { type: "string" }, required: false },
   },
   computedFields: {
@@ -76,9 +79,6 @@ export default makeSource({
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
       rehypeSlug,
-      // rehypeAccessibleEmojis,
-      // rehypeAutolinkHeadings,
-      // rehypeCodeTitles,
       [rehypeToc, rehypeTocOptions],
       [rehypePrettyCode, rehypePrettyCodeOptions],
     ],

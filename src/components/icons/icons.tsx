@@ -8,12 +8,14 @@ import {
   Code2,
   Construction,
   Database,
+  ExternalLink,
   Eye,
   Github,
   Laptop,
   Laugh,
   Linkedin,
   Mail,
+  MapPin,
   MessageCircle,
   Moon,
   MoveDown,
@@ -58,6 +60,8 @@ export const Icons = {
   at: AtSign,
   construction: Construction,
   messageCircle: MessageCircle,
+  externalLink: ExternalLink,
+  mapPin: MapPin,
 }
 
 export type IconsType = typeof Icons

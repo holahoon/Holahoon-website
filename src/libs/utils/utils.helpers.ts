@@ -5,9 +5,15 @@ import { twMerge } from "tailwind-merge"
 /** Merges className values */
 export const cn = (...inputs: ClassValue[]): string => twMerge(clsx(inputs))
 
-/** Formats dates */
+/** format date using date-fns format function */
+export const formatDate = (date: string, formatMethod: string) => {
+  const d = new Date(date)
+  return format(d, formatMethod)
+}
+
+/** format date from now */
 // TODO: Need hours and minutes to be worked on
-export const formatDate = (date: string, dist = 3): string => {
+export const formatDateFromNow = (date: string, dist = 3): string => {
   const DATE_FORMAT = "LLL do yyy"
   const now = Date.now()
   const d = new Date(date)
