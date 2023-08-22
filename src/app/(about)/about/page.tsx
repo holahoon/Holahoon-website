@@ -6,7 +6,12 @@ const careerHistory = [
   {
     company: "3billion",
     position: "Front end web developer",
-    descriptions: [],
+    descriptions: [
+      "Develop an internal sales management web application and internal clinical curation web application.",
+      "Participate in developing a clinical service ordering web application for medical professionals.",
+      "Set up Github Actions CI/CD pipelines to automate testing and building process.",
+      "Migrate React.js application from create-react-app(CRA) to Vite for better developer experience and reduce application build time by more than 50%.",
+    ],
     location: "Seoul, South Korea.",
     link: "https://3billion.io",
     date: {
@@ -19,8 +24,8 @@ const careerHistory = [
     position: "Front end developer",
     link: "http://www.yeoboyacorp.com",
     descriptions: [
-      "Rewrite legacy JavaScript to TypeScript based React components",
-      "",
+      "Participate in developing and maintaining a radio broadcast web application.",
+      "Refactor legacy JavaScript based React.js components to TypeScript based.",
     ],
     location: "Seoul, South Korea.",
     date: {
@@ -32,8 +37,8 @@ const careerHistory = [
     company: "Luckie & Co.",
     position: "Front end developer",
     descriptions: [
-      "Participate in developing and maintaining DTC and HCP pharmaceutical websites using AEM, SASS.",
-      "Develop reusable AEM components for a faster development time.",
+      "Participate in developing and maintaining DTC and HCP pharmaceutical websites.",
+      "Develop reusable components in Adobe Experience Manager(AEM) to reduce unnecessary development time.",
     ],
     location: "Duluth, GA, USA.",
     link: "https://luckie.com",
