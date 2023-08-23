@@ -40,5 +40,3 @@ jobs:
 
       - name: Deploy Project
         run: yarn vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
-
-      
