@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Work_Sans } from "next/font/google"
 import { type ReactNode } from "react"
+import { Analytics } from "@vercel/analytics/react"
 
 import { ThemeProvider } from "@/providers/theme-provider"
 import { cn } from "@/libs/utils/utils.helpers"
@@ -96,6 +97,8 @@ export default function RootLayout(props: RootLayoutProps) {
             <Footer />
           </div>
         </ThemeProvider>
+
+        <Analytics />
       </body>
     </html>
   )

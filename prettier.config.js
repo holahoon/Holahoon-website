@@ -8,6 +8,7 @@ module.exports = {
     "^(react/(.*)$)|^(react$)",
     "^@radix-ui/(.*)$",
     "contentlayer/(.*)$",
+    "@vercel/(.*$)",
     "<THIRD_PARTY_MODULES>",
     "",
     "^@/providers/(.*)$",
