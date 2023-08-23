@@ -1,0 +1,41 @@
+name: Holahoon Production Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  VERCEL_PROJECT_ID: ${{secrets.VERCEL_PROJECT_ID}}
+  VERCEL_ORG_ID: ${secrets.VERCEL_ORG_ID}
+
+jobs:
+  deploy-production:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set Node.js ${{matrix.node-version}}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{matrix.node-version}}
+          cache: yarn
+      
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Pull Vercel Environment Information
+        run: yarn vercel pull --yes --envrionment=production --token=${{secrets.VERCEL_TOKEN}}
+
+      - name: Build Project Artifacts
+        run: yarn vercel build --prod --token=${{secrets.VERCEL_TOKEN}}
+
+      - name: Deploy Project
+        run: yarn vercel deploy --prod --prebuilt --token=${{secrets.VERCEL_TOKEN}}
+      
+

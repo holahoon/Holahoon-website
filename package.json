@@ -52,6 +52,7 @@
     "remark-gfm": "^3.0.1",
     "remark-toc": "^8.0.1",
     "shiki": "^0.14.3",
-    "tailwindcss-animate": "^1.0.6"
+    "tailwindcss-animate": "^1.0.6",
+    "vercel": "^32.0.1"
   }
 }
