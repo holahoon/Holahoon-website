@@ -1,8 +1,8 @@
 import { socialConfig } from "./social.config"
 
 export const siteConfig = {
-  name: "Hooniverse",
-  url: "localhost:3000",
+  name: "Holahoon",
+  url: "https://hooniverse.vercel.app", // TODO: needs to update
   description: "David Kim, a web developer",
   author: "David Kim",
   ogImage: "", // TODO: needs og image

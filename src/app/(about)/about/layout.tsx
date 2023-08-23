@@ -9,7 +9,7 @@ interface LayoutProps {
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Hooniverse - About David Kim",
+  description: "Holahoon - About David Kim",
 }
 
 export default function ProjectsLayout(props: LayoutProps) {

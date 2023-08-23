@@ -9,7 +9,7 @@ interface TilLayoutProps {
 
 export const metadata: Metadata = {
   title: "TIL",
-  description: "Hooniverse - Today I Learned",
+  description: "Holahoon - Today I Learned",
 }
 
 export default async function TilLayout(props: TilLayoutProps) {
