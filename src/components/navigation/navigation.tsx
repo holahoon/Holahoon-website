@@ -14,7 +14,7 @@ function navigation(_: unknown, ref: ForwardedRef<HTMLElement>) {
       <LayoutWrapper>
         <div className="flex items-center">
           <Link href="/" className="text-xl font-bold text-foreground">
-            Holahoon
+            holahoon
           </Link>
 
           <nav className="ml-auto flex items-center">
