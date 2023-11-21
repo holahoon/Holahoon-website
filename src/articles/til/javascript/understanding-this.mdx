@@ -1,0 +1,110 @@
+---
+title: Understanding 'this' in JavaScript
+description: Understand 'this' in JavaScript and its simple rules!
+date: 2023-11-21
+---
+
+Now that I am back in US, I need to refresh my memories and get ready for job interviews.
+
+So basically the rule of `this` is actually rather simple. `this` is determined at the time a function is invoked by inspecting where it is called.
+
+## Rules
+
+### 1. With the `new` keyword
+
+When calling the `new` keyword, `this` inside the function is a brand new object.
+
+```JavaScript
+function ConstructorExample() {
+  console.log(this);
+  this.value = 10;
+  console.log(this);
+}
+
+new ConstructorExample();
+// -> {}
+// -> { value: 10 }
+```
+
+### 2. Using `apply`, `call` or `bind`
+
+If `apply`, `call`, or `bind` are used to call a function, `this` inside the function is the object that is passed in as the argument.
+
+```JavaScript
+function fn() {
+  console.log(this);
+}
+
+var obj = {
+  value: 5
+};
+
+var boundFn = fn.bind(obj);
+boundFn();     // -> { value: 5 }
+fn.call(obj);  // -> { value: 5 }
+fn.apply(obj); // -> { value: 5 }
+```
+
+### 3. When a function is called as a method
+
+If a dot notation is used to invoke the function, `this` is the object that the function is a property of.
+
+```JavaScript
+var obj = {
+  value: 5,
+  printThis: function() {
+      console.log(this);
+  }
+};
+
+obj.printThis(); // -> { value: 5, printThis: ƒ }
+```
+
+### 4. Free function invocation
+
+If a function is invoked without any conditions like above, `this` is the global object. In a browser, it's `window`.
+
+```JavaScript
+function fn() {
+  console.log(this);
+}
+
+// If called in browser:
+fn(); // -> Window {stop: ƒ, open: ƒ, alert: ƒ, ...}
+```
+
+when calling `fn()`, it’s interpreted as `window.fn()`, so this is `window`.
+
+```
+console.log(fn === window.fn); // -> true
+```
+
+### 4. When multiple rules apply
+
+If multiple of the above rules apply, the rule that is higher wins and will set the this value.
+
+### 5. ES5 arrow function
+
+If a function is an ES5 arrow function, it ignores all the rules above and receives `this` value of its surrounding scopt **at the time it's created**.
+
+```JavaScript
+const obj = {
+  value: 'abc',
+  createArrowFn: function() {
+      return () => console.log(this);
+  }
+};
+
+const arrowFn = obj.createArrowFn();
+arrowFn(); // -> { value: 'abc', createArrowFn: ƒ }
+```
+
+Going back to the 3rd rule, when we call `obj.createArrowFn()`, `this` inside `createArrowFn` will be `obj`, as we’re calling it with dot notation. `obj` therefore gets bound to `this` in `arrowFn`. If we were to create an arrow function in the global scope, this would be `window`.
+
+### Order of precedence
+
+When multiple rules apply, the rule higher on the list wins. So when rule 2 and rule 1 apply, rule 1 takes precedence.
+
+### credit
+
+Thanks to [the simple rules to 'this' in JavaScript](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3)
