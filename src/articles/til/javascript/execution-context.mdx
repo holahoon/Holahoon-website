@@ -14,14 +14,105 @@ There are two kinds of Execution Context in JavaScript:
 - Global Execution Context (GEC)
 - Function Execution Context (FEC)
 
-### Global Execution Context (GEC)
+This is the base/default Execution Context for each JavaScript file code.
+
+During the creation of GEC, there are two phases:
+
+- Creation phase
+- Execution Phase
+
+### Creation Phase
+
+Within Execution Context, JavaScript creates a global object (`window`), and `this` object is created. The Variable Object(VO) is created to store the variables and function declarations defined.
+During the GEC, variables declared with the `var` keyword get added to VO that points to that variable and set to `undefined`. Also, function declaration is added to the VO, pointing to that function.
+This process is called "hoisting" 🙃
+
+However, the FEC does not contruct a VO, but it rather creates an array-like object called the "argument" object. This has all of the arguments supplied to the function.
+
+```JavaScript title=""
+function func(){
+  console.log(arguments);
+};
+```
+
+### Execution Phase
+
+This is whenever a function is invoked, JavaScript creates a different type of Execution Context than the Global Execution Context.
+
+During this phase, any time a function is invoked, a new Execution Context is created and added to the Execution Stack. Whenever a function is finished running through both the creation and execution phase, it gets popped off the execution stack. Because JavaScript is a singled threaded, only one task can be executed at a time.
 
 ## Hoisting
 
+Like it's explained in the Global Execution Context during the creation phase, any variable declarations are assigned `undefined`, known as "hoisting". This is because functions and variables declarations are stored in a memory of the current Execution Context Variable Object and made available before execution of the code begins.
+
+### Funciton Hoisting
+
+When invoking a function before the lines it is declared is possible because functions are stored in the memory and are made available:
+
+```JavaScript title="function hoisiting"
+getName("DK"); // "DK"
+
+function getName(name){
+  console.log(name);
+};
+```
+
+### Variable Hoisting
+
+When calling the variable before it is declared gives an undefined variable:
+
+```JavaScript title="variable hoisting"
+console.log(name); // undefined
+
+var name = "DK";
+```
+
+### Important Rules of Hoisting
+
+Hoisting only works for declarations, not expressions:
+
+```JavaScript title="important"
+getName("DK");
+
+var getName = function(name){
+  console.log(name);
+};
+```
+
+This expression code will break and will throw error: `Uncaught TypeError: getName is not a function` because `getName` will be hoisted as a variable, not as a function which means it will be assigned `undefined`.
+
+`let` and `const` will also break and result a ReferenceError since they are hoisted, but not assigned with the default value of `undefined`.
+
 ## Scopes
+
+So far, I've talked about both the GEC and FEC, creation and execution phase. But, There is something I haven't talked about. What about the variables during the Function Execution Context? Do these variables get hoisted during the GEC creation phase?
+Well, no.
+
+In the FEC, it still goes through both the same creation and execution phase, it during the creation phase, it hoists any variables declared within the Function Execution Context. Also, anytime a variable is passed to the function as an argument, that variable during the creation phase is going to be put in the variable environment of the current Execution Context. So, the argument will be as if that variable was created.
+What happens if during the FEC execution phase, when accessing a local variable that is not declared within the current FEC? Well, it looks for the nearest parent Execution Context for that variable. This look-up process continues until the GEC. But, if the varaible does not exist in the GEC, it will throw a ReferenceError.
+
+This is the Scope Chain.
 
 ## Closures
 
-```JavaScript title=""
+What if we have a function nested inside a function?
 
+```JavaScript title=""
+var count = 0;
+
+function makeAdder(x){
+  return function inner(y){
+    return x + y;
+  };
+};
+
+var add5 = makeAdder(5);
+count += add5(2);
 ```
+
+The inner function creates a "closure" over the Execution Context Variable Envrionment of the parent function. During the execution phase of the `inner` function, it has access to the `y` argument, but it doesn't know what `x` is. This is where the `inner` function looks in the closure scope, which has the `x` variable.
+`inner` function has access to any of the varaibles declared in the parent function's Execution Context even though that parent's function Execution Context has been removed from the stack. This behavior is called **lexical scoping**.
+
+### Credit
+
+[JavaScript Execution Context](https://www.freecodecamp.org/news/execution-context-how-javascript-works-behind-the-scenes/), [The Ultimate Guide to Execution Contexts, Hoisting, Scopes, and Closures in JavaScript](https://www.youtube.com/watch?v=Nt-qa_LlUH0)
