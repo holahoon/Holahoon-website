@@ -1,0 +1,116 @@
+---
+title: The difference between Normalize CSS and Reset CSS
+description: What exactly is the difference between Normalize CSS and Reset CSS?! It always confuses me
+date: 11-24-2024
+---
+
+When starting a new project, I always look for a CSS file to use to strip out all the unwanted default browser styles. I always search for Reset CSS, but I get confused which one to use - [Normalize CSS](https://necolas.github.io/normalize.css/) or [Reset CSS](https://meyerweb.com/eric/tools/css/reset/).
+Today, I'm going to put an end to this!
+
+## CSS User Agent Styles
+
+When a browser renders an HTML page on the browser, it applies basic styles to the HTML tags by default. Every browser has different way of putting basic styles to the HTML tags. We can see this property in the dev tools where it says `user agent stylesheet`.
+This becomes an inconsistency problem when we try to apply same the style across all the browsers.
+There are two approaches to solve this problem: Normalize CSS and Reset CSS.
+
+## Normalize CSS
+
+This is the more gentle solution.
+Normalize.css is a small CSS file that provides cross-browser consistency in the default styling of HTML elements. W3C standards of the styles applied to the browsers and if there is an inconsistency in one of the browsers, the Normalize.css will apply the style to fix the browser with the different style.
+
+There's an open source for [Normalize.css](https://github.com/necolas/normalize.css/blob/master/normalize.css)
+
+## Reset CSS
+
+This is the more aggressive solution.
+
+Reset CSS doesn't give a crap about default styles the browser applies, it just strips out all of the default browser's user agent styles. So, there will be no default padding, margin or font sizes applied to any HTML tags.
+The downside of Reset CSS being aggressive is that it could be really ugly since they have a big chain of selectors, a bunch of unnecessary overrides. They are hard to read when debugging too!
+
+## Conclusion
+
+The article I read suggests to use Normalize.css with a little bit of Reset CSS, but wisely XD.
+
+The author has his own CSS Reset - `reset.local.css`.
+
+```css title="reset.local.css"
+/****** Elad Shechter's RESET *******/
+/*** box sizing border-box for all elements ***/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+button {
+  background-color: transparent;
+  color: inherit;
+  border-width: 0;
+  padding: 0;
+  cursor: pointer;
+}
+figure {
+  margin: 0;
+}
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+ul,
+ol,
+dd {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+p {
+  margin: 0;
+}
+cite {
+  font-style: normal;
+}
+fieldset {
+  border-width: 0;
+  padding: 0;
+  margin: 0;
+}
+```
+
+### Typography
+
+The author also has his own typography reset css file
+
+```css title="typography.css"
+html {
+  font-size: 1px; /*for using REM units*/
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-size: 16rem;
+  font-weight: 400;
+  line-height: 1.3;
+  color: #222;
+}
+```
+
+I don't agree with setting the default HTML a font size of `1px`, I would rather leave it at the default 16px and apply/calculate `rem` units.
+
+### Credit
+
+[Normalize CSS or Reset CSS](https://elad.medium.com/normalize-css-or-css-reset-9d75175c5d1e)
