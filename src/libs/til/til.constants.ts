@@ -5,4 +5,5 @@ export const directoryMapper: Record<string, Til["category"] | undefined> = {
   react: "React.js",
   git: "Git",
   next: "Next.js",
+  javascript: "JavaScript",
 }

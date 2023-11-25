@@ -1,7 +1,7 @@
 ---
 title: Cookies vs Local Storage vs Session Storage
-description: Differences between Cookies, Local Stroage, Session Storage and which one to choose!
-date: 11-25-2024
+description: Let's talk about the differences between Cookies, Local Stroage, Session Storage
+date: 2024-11-25
 ---
 
 We can store and retrieve some data directly within the user's web browser. There are 3 popular client-side storage options: local storage, session storage, and cookies.
@@ -10,7 +10,7 @@ I'm going to talk about the differences and how to use them to manage data on th
 ## Local Storage
 
 It is composed of key-values pairs and can be stored without an expiration date.
-It is typically used to store user preferences, application settings, and cached data. Most web browsers limit around 5-10MB per origin.
+It is typically used to store user preferences, application settings, and cached data. Most web browsers limit around 5-10MB storage size per origin.
 It is a `window` object property and there are 4 ways to manage data in local storage:
 
 - `setItem(key, value)`
@@ -39,11 +39,70 @@ localStorage.removeItem('theme');
 - **No Automatic Expiration**: It does not have a built-in expiration mechanism. Therefore it requires manual updating or clearing of data.
 - **Synchronous Access**: Interacting with it is synchronous which it could potentially impact other operations.
 
-### Use Case of Local Storage
+### Use Cases of Local Storage
 
 - **User Preferences**: It can be used to store user preferences: theme selection, language preference, or display settings.
 - **Form Data Persistence**: It can save partially completed form data, which enables users to resume filling out forms after closing or navigating away from the page.
 - **Caching**: It can be used to store/cache frequently accesssed data or resources which can help to reduce server load and improve overall performance.
+
+## Session Storage
+
+It is similar to local storage but limited to the current session or tab. It's commonly used for maintaining state during a user's interaction.
+It is useful for storing data that needs to be available as long as the session is active. It also limits the storage size to 5-10MB, similar to local storage.
+
+Methods are very similar to local storage.
+
+### Pros about Session Storage
+
+- **Session-Specific Storage**: It is tied to a specific browsing session by making the data temporary.
+- **Automatic Clearing**: It is automatically deleted when the user closes the browser tab. No need to manually clear data.
+- **Isolated Storage**: All sessions have their own session storage, which it makes it unique and allows data to be isolated from other sessions or tabs.
+
+### Cons about Session Storage
+
+- **Limited Persistence**: Data in session storage is lost and cleared after user refreshses or closes the browser.
+- **Same-Origin Limitation**: Similar to local storage, it is constrained by the same-origin policy, which limits accessing data from different domains.
+- **Synchronous Access**: Similar to local storage, accessing data from session storage is synchronous and it can potentially block other operations in the browser until the data is retrieved.
+
+### Use Cases of Session Storage
+
+- **Shopping Cart**: It is commonly used to store shopping cart information during a browsing session.
+- **Multi-step Processes**: It can be useful for multi-step processes, like a wizard or multi-page form, where data needs to be preserved across different steps until the process is completed.
+
+## Cookies
+
+Before HTML5 was introduced, cookies were the only option to store data on the client side. Cookies are also sent to the server with every HTTP request. Due to this behavior, the server also has access to the cookies, allowing websites to personalize content, remember user preferences, and user authentication.
+Cookies can be created, updated, or read through accessing `document.cookies`. We can also restrict its access with the HttpOnly flag to mitigate a few security issues like cross-site scripting.
+
+There are two categories of ccokies: persistent cookies and session cookies, and the main difference between them lies in their lifespan and persistence.
+
+### Persistent Cookies
+
+They have an expiration date that is specified in `Expires` or `Max-Age` attributes and persist across different browsing sessions. They remain in the user's browser until their expiration date is reached or until the user manually deletes them.
+
+### Session Cookies
+
+They don't have a specific expiration time set. They are created and stored on the uesr's browser only for the duration of the session and are not accessible across different sessions. Session cookies are typically cleared automatically once the user closes the browser or tab.
+
+### Pros and Cons of Cookies
+
+**Pros**
+
+- **Cross-Domain Access**: They allow cross-site data sharing, which means that it can be accessed by multiple subdomains or domains.
+- **Expiration Control**: They can have an expiration date that provides control over how long the data persists.
+- **Widely Supported**: They are supported by virtually all web browsers, ensuring compatibility across platforms.
+
+**Cons**
+
+- **Limited Storage Capacity**: Cookies have a smaller storage capacity compared to local or session storage. Typically the size of cookies is limited to 4KB.
+- **Increased Network Traffic**: They are included in every HTTP request. This can affect network traffic and performance, especially if large amounts of data are stored in cookies.
+- **Privacy Concerns**: Cookies can be used for tracking user activity, which can raise privacy concerns. Strict regulations, such as GDPR, require user consent for certain types of tracking cookies. This is why we see so many consents of storing our information in cookies whenever we visit a web page.
+
+### Use Cases of Cookies
+
+- **User Tracking and Analytics**: They allow website owners to understand user interactions, measure traffic, and gather insights for improving their websites.
+- **Personalization**: Cookies can store user preferences, such as preffered language, location, or customized settings.
+- **Remembering User Login**: Cookies can store login credentials or session tokens. This can allow users to stay logged in across multiple browsing sessions without having to re-login.
 
 ## Credit
 
