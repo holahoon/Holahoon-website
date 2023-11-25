@@ -1,0 +1,50 @@
+---
+title: Cookies vs Local Storage vs Session Storage
+description: Differences between Cookies, Local Stroage, Session Storage and which one to choose!
+date: 11-25-2024
+---
+
+We can store and retrieve some data directly within the user's web browser. There are 3 popular client-side storage options: local storage, session storage, and cookies.
+I'm going to talk about the differences and how to use them to manage data on the client side.
+
+## Local Storage
+
+It is composed of key-values pairs and can be stored without an expiration date.
+It is typically used to store user preferences, application settings, and cached data. Most web browsers limit around 5-10MB per origin.
+It is a `window` object property and there are 4 ways to manage data in local storage:
+
+- `setItem(key, value)`
+- `getItem(key)`
+- `removeItem(key)`
+- `clear()`
+
+The name are very straight-forward.
+
+It can be accessed as:
+
+```JavaScript title="localstorage.js"
+const theme = localStorage.setItem('theme', 'dark'); // dark
+localStorage.removeItem('theme');
+```
+
+### Pros about Local Storage
+
+- **Persistent Storage**: Allows data to persist even after user closes the browser or refersh the page. Provides a long-term storage solution.
+- **Offline Support**: Can be utilized to enable offline functionality in web applications by storing necessary data offline which allows the users to conitnue to interact with the application. This enhances usability and accessibility.
+- **Reduced Network Latency**: It can eliminate the need to make frequent newtwork round trips, which reduces network latency and improvve the application's overall performance.
+
+### Cons about Local Storage
+
+- **Limited to the Same Origin**: It only allows access from the same origin by restricts access from different domains.
+- **No Automatic Expiration**: It does not have a built-in expiration mechanism. Therefore it requires manual updating or clearing of data.
+- **Synchronous Access**: Interacting with it is synchronous which it could potentially impact other operations.
+
+### Use Case of Local Storage
+
+- **User Preferences**: It can be used to store user preferences: theme selection, language preference, or display settings.
+- **Form Data Persistence**: It can save partially completed form data, which enables users to resume filling out forms after closing or navigating away from the page.
+- **Caching**: It can be used to store/cache frequently accesssed data or resources which can help to reduce server load and improve overall performance.
+
+## Credit
+
+[Local Storage vs Session Storage vs Cookies](https://medium.com/doku-insight/local-storage-vs-session-storage-vs-cookies-how-to-choose-and-best-practices-98bef85ea562)
