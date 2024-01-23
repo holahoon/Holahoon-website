@@ -5,7 +5,7 @@ import { careerHistories } from "@/config/career.config"
 
 export default function Career() {
   return (
-    <section className="mt-16">
+    <section>
       <h2 className="text-3xl font-semibold">Career</h2>
 
       <ul className="mt-6 space-y-8">
@@ -24,7 +24,11 @@ export default function Career() {
             <span className="text-sm text-primary/80">
               <time>{formatDate(career.date.start, "LLL yyyy")}</time>
               <span className="mx-2">-</span>
-              <time>{formatDate(career.date.end, "LLL yyyy")}</time>
+              <time>
+                {career.date.end === "current"
+                  ? "Current"
+                  : formatDate(career.date.end, "LLL yyyy")}
+              </time>
             </span>
 
             <span className="inline-flex items-center text-sm text-primary/80">
@@ -33,9 +37,9 @@ export default function Career() {
             </span>
 
             <div className="mt-2 text-sm text-primary/80">
-              {career.descriptions.map((description) => (
+              {/* {career.descriptions.map((description) => (
                 <p key={`description-${description}`}>{description}</p>
-              ))}
+              ))} */}
               <ul className="ml-4 mt-1 list-disc space-y-1">
                 {career.keyPoints.map((keyPoint) => (
                   <li key={`keyPoint-${keyPoint}`}>{keyPoint}</li>

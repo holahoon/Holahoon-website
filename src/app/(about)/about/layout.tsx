@@ -19,7 +19,12 @@ export default function ProjectsLayout(props: LayoutProps) {
     <div className="flex h-full flex-1 flex-col">
       <PageHeader header="About">
         <p className="text-primary/90">Hi there! I&apos;m David Kim,</p>
-        <p className="text-primary/90">but you can call me DK.</p>
+        <p className="text-primary/90">
+          A committed frontend developer with 4 years of experience ni web
+          development, motivated by a desire for continuous learning and
+          consistent growth. Eager to apply both passion and skills to
+          collaborate and contribute within a dynamic team environment.
+        </p>
       </PageHeader>
       {children}
     </div>
