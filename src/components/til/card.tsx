@@ -1,7 +1,7 @@
 import Link from "next/link"
 import type { Til } from "contentlayer/generated"
 
-import { formatDateFromNow } from "@/libs/utils/utils.helpers"
+import { formatDate } from "@/libs/utils/utils.helpers"
 import { Icons } from "@/components/icons"
 
 interface Props {
@@ -42,7 +42,7 @@ export default function Card(props: Props) {
           {/* Date */}
           <time className="inline-flex items-center text-sm/4 text-primary/70">
             <Icons.calendar size={12} className="mr-1" />
-            {formatDateFromNow(article.date, 0)}
+            {formatDate(article.date)}
           </time>
 
           {/* Tags (Not sure if I'm going to use tags) */}

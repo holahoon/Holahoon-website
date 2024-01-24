@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from "react"
 
-import { formatDateFromNow } from "@/libs/utils"
+import { formatDate } from "@/libs/utils"
 import { Icons } from "../icons"
 
 interface MdxHeaderProps extends HTMLAttributes<HTMLDivElement> {
@@ -26,7 +26,7 @@ export default function MdxHeader(props: MdxHeaderProps) {
           {date ? (
             <time className="inline-flex items-center text-sm text-primary/70">
               <Icons.calendar size={12} className="mr-1" />
-              {formatDateFromNow(date, 0)}
+              {formatDate(date)}
             </time>
           ) : null}
 

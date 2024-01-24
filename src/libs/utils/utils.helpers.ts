@@ -8,22 +8,9 @@ import { CareerHistories } from "@/config/career.config"
 export const cn = (...inputs: ClassValue[]): string => twMerge(clsx(inputs))
 
 /** format date using date-fns format function */
-export const formatDate = (date: string, formatMethod: string) => {
+export const formatDate = (date: string, formatMethod = "LLL do yyy") => {
   const d = new Date(date)
   return format(d, formatMethod)
-}
-
-/** format date from now */
-// TODO: Need hours and minutes to be worked on
-export const formatDateFromNow = (date: string, dist = 3): string => {
-  const DATE_FORMAT = "LLL do yyy"
-  const now = Date.now()
-  const d = new Date(date)
-
-  const timeDiff = (now - d.getTime()) / 1000
-  const days = 60 * 60 * 24 * dist
-  if (timeDiff < days) return formatDistanceToNow(d, { addSuffix: true })
-  return format(d, DATE_FORMAT)
 }
 
 /** Capitalizes first letter */
